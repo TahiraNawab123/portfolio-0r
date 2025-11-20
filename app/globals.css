@@ -1,0 +1,194 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --background: 0 0% 5%;
+  --foreground: 0 0% 95%;
+  --card: 0 0% 10%;
+  --card-foreground: 0 0% 95%;
+  --primary: 120 100% 50%;
+  --primary-foreground: 0 0% 5%;
+  --secondary: 200 100% 50%;
+  --secondary-foreground: 0 0% 5%;
+  --accent: 280 100% 60%;
+  --accent-foreground: 0 0% 5%;
+  --muted: 0 0% 25%;
+  --muted-foreground: 0 0% 70%;
+  --border: 0 0% 15%;
+  --ring: 120 100% 50%;
+  --radius: 0.5rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+  --background: 0 0% 5%;
+  --foreground: 0 0% 95%;
+  --card: 0 0% 10%;
+  --card-foreground: 0 0% 95%;
+  --primary: 120 100% 50%;
+  --primary-foreground: 0 0% 5%;
+  --secondary: 200 100% 50%;
+  --secondary-foreground: 0 0% 5%;
+  --accent: 280 100% 60%;
+  --accent-foreground: 0 0% 5%;
+  --muted: 0 0% 25%;
+  --muted-foreground: 0 0% 70%;
+  --border: 0 0% 15%;
+  --ring: 120 100% 50%;
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(0.269 0 0);
+  --sidebar-ring: oklch(0.439 0 0);
+}
+
+@theme inline {
+  --font-sans: "Space Grotesk", "Space Grotesk Fallback";
+  --font-mono: "JetBrains Mono", "JetBrains Mono Fallback";
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-border: hsl(var(--border));
+  --color-ring: hsl(var(--ring));
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 2px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: "JetBrains Mono", monospace;
+  }
+
+  /* Enhanced scrollbar with glow effect */
+  ::-webkit-scrollbar {
+    @apply w-2;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-card;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary/50 rounded hover:bg-primary;
+    box-shadow: 0 0 8px rgba(34, 197, 94, 0.3);
+  }
+
+  /* Added smooth scroll behavior */
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Enhanced animations for terminal aesthetic */
+@keyframes neon-glow {
+  0%,
+  100% {
+    text-shadow: 0 0 10px rgba(34, 197, 94, 0.5), 0 0 20px rgba(34, 197, 94, 0.3);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(34, 197, 94, 0.8), 0 0 30px rgba(34, 197, 94, 0.5), 0 0 40px rgba(34, 197, 94, 0.2);
+  }
+}
+
+@keyframes matrix-rain {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(100vh);
+  }
+}
+
+@keyframes blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 10px rgba(34, 197, 94, 0.3), inset 0 0 10px rgba(34, 197, 94, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(34, 197, 94, 0.5), inset 0 0 15px rgba(34, 197, 94, 0.2);
+  }
+}
+
+.neon-text {
+  animation: neon-glow 2s ease-in-out infinite;
+  font-weight: bold;
+}
+
+.matrix-rain {
+  animation: matrix-rain linear infinite;
+}
+
+.cursor-blink {
+  animation: blink 1s infinite;
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Smooth transitions and active states */
+a {
+  @apply transition-all duration-300;
+}
+
+button {
+  @apply transition-all duration-300;
+}
+
+/* Selection styling */
+::selection {
+  @apply bg-primary text-primary-foreground;
+}
