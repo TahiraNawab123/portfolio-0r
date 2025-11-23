@@ -13,7 +13,7 @@ export default function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="border border-primary/30 rounded p-4 font-mono text-sm"
+          className="border border-primary/30 rounded p-4 py-6 font-mono text-sm"
         >
           <div className="space-y-2 text-xs">
             <div className="text-primary">

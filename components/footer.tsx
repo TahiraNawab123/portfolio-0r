@@ -17,9 +17,6 @@ export default function Footer() {
         >
           <div className="text-center sm:text-left">
             <p className="text-sm text-muted-foreground">© {currentYear} Tahira Nawab. All rights reserved.</p>
-            <p className="text-xs text-muted-foreground/70 mt-1">
-              Built with React, TypeScript, Tailwind CSS & Framer Motion
-            </p>
           </div>
 
           <div className="flex items-center gap-4">
