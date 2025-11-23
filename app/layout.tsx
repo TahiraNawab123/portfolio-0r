@@ -13,7 +13,8 @@ export const metadata: Metadata = {
   keywords: ["fullstack developer", "web development", "react", "typescript", "next.js", "portfolio"],
   authors: [{ name: "Tahira Nawab" }],
   icons: {
-    icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
+    icon: [{ url: "/favicon.png", type: "image/png" }],
+    apple: "/favicon.png",
   },
   openGraph: {
     type: "website",
