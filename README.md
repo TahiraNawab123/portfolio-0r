@@ -1,1 +1,1 @@
-A modern, interactive portfolio for Tahira Nawab (aka Tom), showcasing full-stack development, software engineering, AI tools, and real-world projects. Fully responsive and fast, with terminal-style interactions for a unique developer experience.
+A clean, modern, and interactive developer portfolio built to showcase my work in web development, software engineering, AI tools, and real-world projects. The website is fully responsive, fast, and includes interactive elements like a terminal-style interface for a unique developer vibe.
