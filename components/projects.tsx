@@ -24,7 +24,7 @@ const projectsData: Project[] = [
     shortDesc: "Legal-Tech Platform",
     description:
       "A justice-focused platform designed to simplify legal awareness and streamline interaction between victims and lawyers. features structured flows, cleaner user journeys, and an aim to make legal navigation more accessible.",
-    techStack: ["React", "TypeScript", "Node.js", "MongoDB", "Firebase"],
+    techStack: ["React", "Express.js", "MongoDB", "Node.js", "Tailwind CSS"],
     image: "/legal-tech-platform-interface.jpg",
     links: {
       github: "https://github.com/TahiraNawab123/Lexora",
@@ -36,7 +36,7 @@ const projectsData: Project[] = [
     shortDesc: "Equality & Awareness Platform",
     description:
       "A clean, minimal web platform built for awareness-driven communities. offers structured content, organized UI, and smooth user experience focused on clarity and accessibility.",
-    techStack: ["React", "Tailwind CSS", "Next.js", "REST API"],
+    techStack: ["React", "Tailwind CSS", "JavaScript", "HTML/CSS"],
     image: "/community-platform-dashboard.png",
     links: {
       github: "https://github.com/TahiraNawab123/Usparity",
@@ -48,7 +48,7 @@ const projectsData: Project[] = [
     shortDesc: "AI/NLP Tool",
     description:
       "A text processing tool that turns long blogs into concise summaries using NLP logic. built for speed, clarity, and readability.",
-    techStack: ["Python", "FastAPI", "React", "NLP Libraries"],
+    techStack: ["Python", "Flask", "React", "NLTK"],
     image: "/content-summarization-tool.jpg",
     links: {
       github: "https://github.com/TahiraNawab123/Blog-Summarizer",
@@ -60,7 +60,7 @@ const projectsData: Project[] = [
     shortDesc: "Creative Utility",
     description:
       "A lightweight app that generates random motivational and aesthetic quotes dynamically. minimal yet visually pleasing.",
-    techStack: ["React", "TypeScript", "Tailwind CSS", "API Integration"],
+    techStack: ["React", "JavaScript", "CSS", "API"],
     image: "/quote-generator-interface.jpg",
     links: {
       github: "https://github.com/TahiraNawab123/quote-generator",
@@ -72,7 +72,7 @@ const projectsData: Project[] = [
     shortDesc: "CLI/OOP Project",
     description:
       "A command-line based management system built using C++ with OOP + file handling. manages personnel, missions, and operational data with structured flows.",
-    techStack: ["C++", "OOP", "File I/O", "Data Structures"],
+    techStack: ["C++", "OOP", "File Handling", "STL"],
     image: "/command-line-interface-system.jpg",
     links: {
       github: "https://github.com/TahiraNawab123/Military-Management-System",
@@ -84,7 +84,7 @@ const projectsData: Project[] = [
     shortDesc: "Music Streaming Application",
     description:
       "A Spotify-inspired music streaming application with playlist management, user profiles, and audio playback functionality. built with modern web technologies for seamless music discovery.",
-    techStack: ["React", "Node.js", "Express", "MongoDB", "Spotify API"],
+    techStack: ["React", "Firebase", "JavaScript", "Tailwind CSS"],
     image: "/myspotify-music-app.jpg",
     links: {
       github: "https://github.com/TahiraNawab123/mySpotify",
@@ -96,7 +96,7 @@ const projectsData: Project[] = [
     shortDesc: "Version Control System",
     description:
       "A lightweight implementation of Git version control system. demonstrates core Git functionality including commit, branch, merge, and history tracking.",
-    techStack: ["Python", "Git Internals", "File System", "Hash Functions"],
+    techStack: ["Python", "Git Protocol", "SHA-1", "CLI"],
     image: "/mini-git-version-control.jpg",
     links: {
       github: "https://github.com/TahiraNawab123/mini_git",
@@ -108,7 +108,7 @@ const projectsData: Project[] = [
     shortDesc: "Ben10 Game Project",
     description:
       "Ben 10 game project featuring alien transformations and action-packed gameplay. built with immersive mechanics and engaging interface design.",
-    techStack: ["Python", "Data Structures", "Algorithms", "Game Development"],
+    techStack: ["Python", "Pygame", "Game Logic", "OOP"],
     image: "/omnidex-ben10-game.jpg",
     links: {
       github: "https://github.com/TahiraNawab123/OMNIDEX",
@@ -120,7 +120,7 @@ const projectsData: Project[] = [
     shortDesc: "Inventory Management System",
     description:
       "An inventory management system designed for efficient product tracking and stock level monitoring. streamlines data organization and provides real-time inventory insights.",
-    techStack: ["React", "TypeScript", "Firebase", "Tailwind CSS"],
+    techStack: ["React", "Node.js", "MongoDB", "Tailwind CSS"],
     image: "/glsoc-inventory-management.jpg",
     links: {
       github: "https://github.com/TahiraNawab123/GLOSC",
@@ -132,7 +132,7 @@ const projectsData: Project[] = [
     shortDesc: "Interactive Web Experience",
     description:
       "A fun project with Will and Demogorgon features inspired by the Stranger Things universe. features immersive UI, dark atmospheric design, and interactive elements.",
-    techStack: ["React", "Framer Motion", "CSS", "JavaScript"],
+    techStack: ["React", "Framer Motion", "Tailwind CSS", "JavaScript"],
     image: "/stranger-things-project.jpg",
     links: {
       github: "https://github.com/TahiraNawab123/Stranger-Things",
@@ -144,7 +144,7 @@ const projectsData: Project[] = [
     shortDesc: "Political Awareness Campaign",
     description:
       "A professional political awareness campaign platform designed for maximum engagement and information dissemination. features compelling visuals, structured narratives, and community mobilization tools.",
-    techStack: ["HTML", "CSS", "JavaScript", "Responsive Design"],
+    techStack: ["HTML5", "CSS3", "JavaScript", "Bootstrap"],
     image: "/free-imran-khan-campaign.jpg",
     links: {
       github: "https://github.com/TahiraNawab123/Free_Imran_Khan",
@@ -156,7 +156,7 @@ const projectsData: Project[] = [
     shortDesc: "Educational Resource Hub",
     description:
       "A centralized hub for ITU computer science students to access course materials, study guides, and programming resources. organized and easily navigable.",
-    techStack: ["Next.js", "React", "Tailwind CSS", "Markdown"],
+    techStack: ["Next.js", "TypeScript", "Tailwind CSS", "MDX"],
     image: "/itu-cs-resources-hub.jpg",
     links: {
       github: "https://github.com/TahiraNawab123/ITU-CS-Resources",
@@ -166,6 +166,14 @@ const projectsData: Project[] = [
 
 export default function Projects() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null)
+  const [visibleCount, setVisibleCount] = useState(6)
+
+  const visibleProjects = projectsData.slice(0, visibleCount)
+  const hasMoreProjects = visibleCount < projectsData.length
+
+  const handleViewMore = () => {
+    setVisibleCount((prev) => prev + 3)
+  }
 
   return (
     <section id="projects" className="relative min-h-screen py-20 px-4 sm:px-6 lg:px-8">
@@ -186,7 +194,7 @@ export default function Projects() {
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projectsData.map((project, idx) => (
+          {visibleProjects.map((project, idx) => (
             <motion.div
               key={project.id}
               initial={{ opacity: 0, y: 20 }}
@@ -238,6 +246,23 @@ export default function Projects() {
             </motion.div>
           ))}
         </div>
+
+        {hasMoreProjects && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="flex justify-center mt-12"
+          >
+            <button
+              onClick={handleViewMore}
+              className="px-8 py-3 font-mono text-sm border border-primary/50 text-primary hover:bg-primary/10 hover:border-primary transition-all duration-300 rounded"
+            >
+              view more →
+            </button>
+          </motion.div>
+        )}
       </div>
 
       <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />
