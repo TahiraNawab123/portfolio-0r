@@ -85,6 +85,7 @@ const projectsData: Project[] = [
     description:
       "A Spotify-inspired music streaming application with playlist management, user profiles, and audio playback functionality. built with modern web technologies for seamless music discovery.",
     techStack: ["React", "Node.js", "Express", "MongoDB", "Spotify API"],
+    image: "/myspotify-music-app.jpg",
     links: {
       github: "https://github.com/TahiraNawab123/mySpotify",
     },
@@ -96,6 +97,7 @@ const projectsData: Project[] = [
     description:
       "A lightweight implementation of Git version control system. demonstrates core Git functionality including commit, branch, merge, and history tracking.",
     techStack: ["Python", "Git Internals", "File System", "Hash Functions"],
+    image: "/mini-git-version-control.jpg",
     links: {
       github: "https://github.com/TahiraNawab123/mini_git",
     },
@@ -103,10 +105,11 @@ const projectsData: Project[] = [
   {
     id: "omnidex",
     title: "OMNIDEX",
-    shortDesc: "Data Indexing Engine",
+    shortDesc: "Ben10 Game Project",
     description:
-      "A comprehensive data indexing and search engine. optimized for fast retrieval and complex query processing with advanced indexing algorithms.",
-    techStack: ["Python", "Data Structures", "Algorithms", "Database"],
+      "Ben 10 game project featuring alien transformations and action-packed gameplay. built with immersive mechanics and engaging interface design.",
+    techStack: ["Python", "Data Structures", "Algorithms", "Game Development"],
+    image: "/omnidex-ben10-game.jpg",
     links: {
       github: "https://github.com/TahiraNawab123/OMNIDEX",
     },
@@ -114,10 +117,11 @@ const projectsData: Project[] = [
   {
     id: "glsoc",
     title: "GLSOC",
-    shortDesc: "Community/Organization Platform",
+    shortDesc: "Inventory Management System",
     description:
-      "A platform designed for community engagement and social organization. streamlines event management, member coordination, and communication workflows.",
+      "An inventory management system designed for efficient product tracking and stock level monitoring. streamlines data organization and provides real-time inventory insights.",
     techStack: ["React", "TypeScript", "Firebase", "Tailwind CSS"],
+    image: "/glsoc-inventory-management.jpg",
     links: {
       github: "https://github.com/TahiraNawab123/GLOSC",
     },
@@ -127,8 +131,9 @@ const projectsData: Project[] = [
     title: "Stranger-Things",
     shortDesc: "Interactive Web Experience",
     description:
-      "A creative interactive web project inspired by the Stranger Things universe. features immersive UI, animations, and thematic design elements.",
+      "A fun project with Will and Demogorgon features inspired by the Stranger Things universe. features immersive UI, dark atmospheric design, and interactive elements.",
     techStack: ["React", "Framer Motion", "CSS", "JavaScript"],
+    image: "/stranger-things-project.jpg",
     links: {
       github: "https://github.com/TahiraNawab123/Stranger-Things",
     },
@@ -136,10 +141,11 @@ const projectsData: Project[] = [
   {
     id: "free-imran-khan",
     title: "Free_Imran_Khan",
-    shortDesc: "Awareness Campaign Site",
+    shortDesc: "Political Awareness Campaign",
     description:
-      "A campaign-focused informational platform built for awareness and community engagement. features structured content, multimedia integration, and social awareness messaging.",
+      "A professional political awareness campaign platform designed for maximum engagement and information dissemination. features compelling visuals, structured narratives, and community mobilization tools.",
     techStack: ["HTML", "CSS", "JavaScript", "Responsive Design"],
+    image: "/free-imran-khan-campaign.jpg",
     links: {
       github: "https://github.com/TahiraNawab123/Free_Imran_Khan",
     },
@@ -151,6 +157,7 @@ const projectsData: Project[] = [
     description:
       "A centralized hub for ITU computer science students to access course materials, study guides, and programming resources. organized and easily navigable.",
     techStack: ["Next.js", "React", "Tailwind CSS", "Markdown"],
+    image: "/itu-cs-resources-hub.jpg",
     links: {
       github: "https://github.com/TahiraNawab123/ITU-CS-Resources",
     },
