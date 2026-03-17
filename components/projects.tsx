@@ -78,6 +78,83 @@ const projectsData: Project[] = [
       github: "https://github.com/TahiraNawab123/Military-Management-System",
     },
   },
+  {
+    id: "myspotify",
+    title: "mySpotify",
+    shortDesc: "Music Streaming Application",
+    description:
+      "A Spotify-inspired music streaming application with playlist management, user profiles, and audio playback functionality. built with modern web technologies for seamless music discovery.",
+    techStack: ["React", "Node.js", "Express", "MongoDB", "Spotify API"],
+    links: {
+      github: "https://github.com/TahiraNawab123/mySpotify",
+    },
+  },
+  {
+    id: "mini-git",
+    title: "mini_git",
+    shortDesc: "Version Control System",
+    description:
+      "A lightweight implementation of Git version control system. demonstrates core Git functionality including commit, branch, merge, and history tracking.",
+    techStack: ["Python", "Git Internals", "File System", "Hash Functions"],
+    links: {
+      github: "https://github.com/TahiraNawab123/mini_git",
+    },
+  },
+  {
+    id: "omnidex",
+    title: "OMNIDEX",
+    shortDesc: "Data Indexing Engine",
+    description:
+      "A comprehensive data indexing and search engine. optimized for fast retrieval and complex query processing with advanced indexing algorithms.",
+    techStack: ["Python", "Data Structures", "Algorithms", "Database"],
+    links: {
+      github: "https://github.com/TahiraNawab123/OMNIDEX",
+    },
+  },
+  {
+    id: "glsoc",
+    title: "GLSOC",
+    shortDesc: "Community/Organization Platform",
+    description:
+      "A platform designed for community engagement and social organization. streamlines event management, member coordination, and communication workflows.",
+    techStack: ["React", "TypeScript", "Firebase", "Tailwind CSS"],
+    links: {
+      github: "https://github.com/TahiraNawab123/GLOSC",
+    },
+  },
+  {
+    id: "stranger-things",
+    title: "Stranger-Things",
+    shortDesc: "Interactive Web Experience",
+    description:
+      "A creative interactive web project inspired by the Stranger Things universe. features immersive UI, animations, and thematic design elements.",
+    techStack: ["React", "Framer Motion", "CSS", "JavaScript"],
+    links: {
+      github: "https://github.com/TahiraNawab123/Stranger-Things",
+    },
+  },
+  {
+    id: "free-imran-khan",
+    title: "Free_Imran_Khan",
+    shortDesc: "Awareness Campaign Site",
+    description:
+      "A campaign-focused informational platform built for awareness and community engagement. features structured content, multimedia integration, and social awareness messaging.",
+    techStack: ["HTML", "CSS", "JavaScript", "Responsive Design"],
+    links: {
+      github: "https://github.com/TahiraNawab123/Free_Imran_Khan",
+    },
+  },
+  {
+    id: "itu-cs-resources",
+    title: "ITU-CS-Resources",
+    shortDesc: "Educational Resource Hub",
+    description:
+      "A centralized hub for ITU computer science students to access course materials, study guides, and programming resources. organized and easily navigable.",
+    techStack: ["Next.js", "React", "Tailwind CSS", "Markdown"],
+    links: {
+      github: "https://github.com/TahiraNawab123/ITU-CS-Resources",
+    },
+  },
 ]
 
 export default function Projects() {
