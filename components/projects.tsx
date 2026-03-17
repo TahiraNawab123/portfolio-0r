@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion"
 import { useState } from "react"
+import Image from "next/image"
 import ProjectModal from "@/components/project-modal"
 
 interface Project {
@@ -167,12 +168,17 @@ const projectsData: Project[] = [
 export default function Projects() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null)
   const [visibleCount, setVisibleCount] = useState(6)
+  const [loadedImages, setLoadedImages] = useState<Set<string>>(new Set())
 
   const visibleProjects = projectsData.slice(0, visibleCount)
   const hasMoreProjects = visibleCount < projectsData.length
 
   const handleViewMore = () => {
     setVisibleCount((prev) => prev + 3)
+  }
+
+  const handleImageLoad = (id: string) => {
+    setLoadedImages((prev) => new Set(prev).add(id))
   }
 
   return (
@@ -206,11 +212,25 @@ export default function Projects() {
             >
               <div className="bg-card border border-primary/20 rounded-lg overflow-hidden hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 h-full flex flex-col">
                 <div className="h-40 bg-gradient-to-br from-primary/10 to-secondary/10 relative overflow-hidden">
-                  <img
-                    src={project.image || "/placeholder.svg"}
-                    alt={project.title}
-                    className="w-full h-full object-cover opacity-40 group-hover:opacity-60 transition-opacity"
-                  />
+                  {project.image && (
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      className={`object-cover transition-opacity duration-300 ${
+                        loadedImages.has(project.id)
+                          ? "opacity-40 group-hover:opacity-60"
+                          : "opacity-0"
+                      }`}
+                      onLoad={() => handleImageLoad(project.id)}
+                      priority={idx < 6}
+                      quality={75}
+                    />
+                  )}
+                  {!loadedImages.has(project.id) && (
+                    <div className="absolute inset-0 animate-pulse bg-primary/5" />
+                  )}
                   <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent" />
                 </div>
 
