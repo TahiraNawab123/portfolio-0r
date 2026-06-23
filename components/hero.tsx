@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
-import Image from "next/image"
 import MatrixRain from "@/components/matrix-rain"
 
 interface HeroProps {
@@ -47,21 +46,22 @@ export default function Hero({ onOpenTerminal }: HeroProps) {
     },
   }
 
-  const imageVariants = {
-    hidden: { opacity: 0, x: 50 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: { duration: 0.8, ease: "easeOut", delay: 0.5 },
-    },
-  }
-
   return (
-    <section id="home" className="relative min-h-screen pt-24 flex items-center justify-center overflow-hidden bg-background">
+    <section 
+      id="home" 
+      className="relative min-h-screen pt-24 flex items-center justify-center overflow-hidden bg-background"
+      style={{
+        backgroundImage: 'url(/hero-portrait.png)',
+        backgroundPosition: 'right center',
+        backgroundSize: 'auto 100%',
+        backgroundRepeat: 'no-repeat',
+        backgroundAttachment: 'fixed'
+      }}
+    >
       <MatrixRain />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full h-full">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center h-full">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Left side - Text content */}
           <motion.div
             variants={containerVariants}
@@ -120,24 +120,8 @@ export default function Hero({ onOpenTerminal }: HeroProps) {
             </motion.div>
           </motion.div>
 
-          {/* Right side - Hero portrait merged with background */}
-          <motion.div
-            variants={imageVariants}
-            initial="hidden"
-            animate="visible"
-            className="hidden lg:flex items-center justify-center relative h-full"
-          >
-            <div className="relative w-full h-full flex items-center justify-center">
-              <Image
-                src="/hero-portrait.png"
-                alt="Tahira Nawab - Neon Cyberpunk Portrait"
-                width={600}
-                height={700}
-                className="w-full h-auto object-contain mix-blend-screen drop-shadow-[0_0_40px_rgba(34,197,94,0.5)] hover:drop-shadow-[0_0_60px_rgba(34,197,94,0.7)] transition-all duration-300"
-                priority
-              />
-            </div>
-          </motion.div>
+          {/* Right side - Empty, portrait is in background */}
+          <div className="hidden lg:block" />
         </div>
       </div>
     </section>
