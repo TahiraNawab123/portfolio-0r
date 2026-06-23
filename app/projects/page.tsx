@@ -190,42 +190,48 @@ const projectsData: Project[] = [
   },
 ]
 
-export default function Projects() {
+export default function ProjectsPage() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null)
   const [loadedImages, setLoadedImages] = useState<Set<string>>(new Set())
-
-  const visibleProjects = projectsData.slice(0, 6)
 
   const handleImageLoad = (id: string) => {
     setLoadedImages((prev) => new Set(prev).add(id))
   }
 
   return (
-    <section id="projects" className="relative min-h-screen py-20 px-4 sm:px-6 lg:px-8">
+    <main className="min-h-screen bg-background text-foreground py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
+          className="mb-12"
         >
-          <h2 className="text-5xl sm:text-6xl font-bold mb-4">
+          <Link
+            href="/#projects"
+            className="inline-flex items-center gap-2 text-primary hover:text-foreground transition-colors mb-8"
+          >
+            <span>←</span>
+            <span>Back to portfolio</span>
+          </Link>
+
+          <h1 className="text-5xl sm:text-7xl font-bold mb-4">
             <span className="text-primary">{"<"}</span>
-            <span className="text-foreground"> projects </span>
+            <span className="text-foreground"> all projects </span>
             <span className="text-primary">{">"}</span>
-          </h2>
-          <p className="text-muted-foreground">Featured work and technical achievements</p>
+          </h1>
+          <p className="text-muted-foreground text-lg">
+            Explore all {projectsData.length} projects from my portfolio
+          </p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {visibleProjects.map((project, idx) => (
+          {projectsData.map((project, idx) => (
             <motion.div
               key={project.id}
               initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: idx * 0.1 }}
-              viewport={{ once: true }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: idx * 0.05 }}
               onClick={() => setSelectedProject(project)}
               className="group cursor-pointer"
             >
@@ -243,7 +249,6 @@ export default function Projects() {
                           : "opacity-0"
                       }`}
                       onLoad={() => handleImageLoad(project.id)}
-                      priority={idx < 6}
                       quality={75}
                     />
                   )}
@@ -285,24 +290,9 @@ export default function Projects() {
             </motion.div>
           ))}
         </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="flex justify-center mt-12"
-        >
-          <Link
-            href="/projects"
-            className="px-8 py-3 font-mono text-sm border border-primary/50 text-primary hover:bg-primary/10 hover:border-primary transition-all duration-300 rounded inline-block"
-          >
-            view all projects →
-          </Link>
-        </motion.div>
       </div>
 
       <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />
-    </section>
+    </main>
   )
 }
