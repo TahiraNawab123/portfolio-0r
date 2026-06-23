@@ -105,7 +105,7 @@ export default function Hero({ onOpenTerminal }: HeroProps) {
             </motion.div>
           </motion.div>
 
-          {/* Right side - Pixelated portrait */}
+          {/* Right side - Hero portrait */}
           <motion.div
             variants={imageVariants}
             initial="hidden"
@@ -114,8 +114,8 @@ export default function Hero({ onOpenTerminal }: HeroProps) {
           >
             <div className="relative w-full max-w-sm aspect-square">
               <Image
-                src="/pixelated-portrait.png"
-                alt="Tahira Nawab - Pixelated Portrait"
+                src="/hero-portrait.png"
+                alt="Tahira Nawab - Neon Cyberpunk Portrait"
                 fill
                 className="object-contain filter drop-shadow-[0_0_20px_rgba(34,197,94,0.3)] hover:drop-shadow-[0_0_30px_rgba(34,197,94,0.5)] transition-all duration-300"
                 priority
