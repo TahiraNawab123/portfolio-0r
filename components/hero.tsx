@@ -47,83 +47,50 @@ export default function Hero({ onOpenTerminal }: HeroProps) {
   }
 
   return (
-    <section 
-      id="home" 
-      className="relative min-h-screen pt-24 flex items-center justify-center overflow-hidden bg-background"
-      style={{
-        backgroundImage: 'url(/hero-portrait.png)',
-        backgroundPosition: 'right center',
-        backgroundSize: 'auto 100%',
-        backgroundRepeat: 'no-repeat',
-        backgroundAttachment: 'fixed'
-      }}
-    >
+    <section id="home" className="relative min-h-screen pt-24 flex items-center justify-center overflow-hidden">
       <MatrixRain />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-          {/* Left side - Text content */}
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-            className="text-left"
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+        className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
+      >
+        <motion.div variants={itemVariants}>
+          <h1 className="text-5xl sm:text-7xl font-bold mb-4 text-primary neon-text">Tahira Nawab</h1>
+          <p className="text-lg sm:text-xl text-muted-foreground mb-2">aka {"{ tom }"}</p>
+        </motion.div>
+
+        <motion.p variants={itemVariants} className="text-base sm:text-lg text-secondary mb-8 font-mono min-h-8">
+          {">"}
+          <span className="ml-2">{displayText}</span>
+          <span className="ml-1 cursor-blink">|</span>
+        </motion.p>
+
+        <motion.p
+          variants={itemVariants}
+          className="text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed text-sm sm:text-base"
+        >
+          Fullstack dev crafting solutions with intention — from web apps to AI tools, automation utilities, and complex
+          system designs. Sometimes for users, sometimes for innovation, always driven by clarity, logic, and purpose.
+        </motion.p>
+
+        <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 justify-center">
+          <button
+            onClick={onOpenTerminal}
+            className="px-6 py-3 bg-primary text-primary-foreground rounded border border-primary hover:bg-primary/80 transition-all duration-300 hover:shadow-[0_0_20px_rgba(34,197,94,0.5)] font-mono text-sm"
           >
-            {/* Fullstack Developer Badge */}
-            <motion.div variants={itemVariants} className="mb-6">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/30 bg-primary/5">
-                <div className="w-2 h-2 rounded-full bg-primary"></div>
-                <span className="text-sm font-mono text-primary">Fullstack Developer</span>
-                <div className="w-2 h-2 rounded-full bg-primary"></div>
-              </div>
-            </motion.div>
+            {">"} explore projects
+          </button>
 
-            {/* Main heading */}
-            <motion.div variants={itemVariants}>
-              <h1 className="text-6xl sm:text-7xl lg:text-8xl font-bold mb-3 text-white neon-text">Tahira Nawab</h1>
-              <p className="text-xl sm:text-2xl text-primary mb-6 font-mono">aka {"{ tom }"}</p>
-            </motion.div>
-
-            {/* Role */}
-            <motion.p variants={itemVariants} className="text-base sm:text-lg text-primary mb-8 font-mono min-h-8">
-              {">"}
-              <span className="ml-2">{displayText}</span>
-              <span className="ml-1 cursor-blink">|</span>
-            </motion.p>
-
-            {/* Bio */}
-            <motion.p
-              variants={itemVariants}
-              className="text-muted-foreground max-w-xl mb-12 leading-relaxed text-sm sm:text-base"
-            >
-              Fullstack dev crafting solutions with intention — from web apps to AI tools, automation utilities, and complex
-              system designs. Sometimes for users, sometimes for innovation, always driven by clarity, logic, and purpose.
-            </motion.p>
-
-            {/* Buttons */}
-            <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4">
-              <button
-                onClick={onOpenTerminal}
-                className="px-8 py-3 bg-primary text-black font-bold rounded-lg border border-primary hover:bg-primary/90 transition-all duration-300 hover:shadow-[0_0_30px_rgba(34,197,94,0.6)] font-mono text-sm w-fit flex items-center gap-2"
-              >
-                <span>→</span>
-                <span>Explore Projects</span>
-              </button>
-
-              <a
-                href="#contact"
-                className="px-8 py-3 border-2 border-primary text-primary rounded-lg hover:bg-primary/10 transition-all duration-300 font-mono text-sm w-fit flex items-center gap-2"
-              >
-                <span>📡</span>
-                <span>Get In Touch</span>
-              </a>
-            </motion.div>
-          </motion.div>
-
-          {/* Right side - Empty, portrait is in background */}
-          <div className="hidden lg:block" />
-        </div>
-      </div>
+          <a
+            href="#contact"
+            className="px-6 py-3 border border-secondary text-secondary rounded hover:bg-secondary/10 transition-all duration-300 font-mono text-sm"
+          >
+            get in touch
+          </a>
+        </motion.div>
+      </motion.div>
     </section>
   )
 }

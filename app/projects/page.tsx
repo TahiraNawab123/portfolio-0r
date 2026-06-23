@@ -5,8 +5,6 @@ import { useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import ProjectModal from "@/components/project-modal"
-import MatrixRain from "@/components/matrix-rain"
-import Navigation from "@/components/navigation"
 
 interface Project {
   id: string
@@ -201,11 +199,8 @@ export default function ProjectsPage() {
   }
 
   return (
-    <>
-      <Navigation />
-      <MatrixRain />
-      <main className="relative min-h-screen bg-background text-foreground py-20 px-4 sm:px-6 lg:px-8 pt-32">
-        <div className="max-w-7xl mx-auto">
+    <main className="min-h-screen bg-background text-foreground py-20 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -295,10 +290,9 @@ export default function ProjectsPage() {
             </motion.div>
           ))}
         </div>
-        </div>
+      </div>
 
-        <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />
-      </main>
-    </>
+      <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />
+    </main>
   )
 }
