@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
+import Image from "next/image"
 import MatrixRain from "@/components/matrix-rain"
 
 interface HeroProps {
@@ -46,51 +47,83 @@ export default function Hero({ onOpenTerminal }: HeroProps) {
     },
   }
 
+  const imageVariants = {
+    hidden: { opacity: 0, x: 50 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 0.8, ease: "easeOut", delay: 0.5 },
+    },
+  }
+
   return (
     <section id="home" className="relative min-h-screen pt-24 flex items-center justify-center overflow-hidden">
       <MatrixRain />
 
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-        className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
-      >
-        <motion.div variants={itemVariants}>
-          <h1 className="text-5xl sm:text-7xl font-bold mb-4 text-primary neon-text">Tahira Nawab</h1>
-          <p className="text-lg sm:text-xl text-muted-foreground mb-2">aka {"{ tom }"}</p>
-        </motion.div>
-
-        <motion.p variants={itemVariants} className="text-base sm:text-lg text-secondary mb-8 font-mono min-h-8">
-          {">"}
-          <span className="ml-2">{displayText}</span>
-          <span className="ml-1 cursor-blink">|</span>
-        </motion.p>
-
-        <motion.p
-          variants={itemVariants}
-          className="text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed text-sm sm:text-base"
-        >
-          Fullstack dev crafting solutions with intention — from web apps to AI tools, automation utilities, and complex
-          system designs. Sometimes for users, sometimes for innovation, always driven by clarity, logic, and purpose.
-        </motion.p>
-
-        <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 justify-center">
-          <button
-            onClick={onOpenTerminal}
-            className="px-6 py-3 bg-primary text-primary-foreground rounded border border-primary hover:bg-primary/80 transition-all duration-300 hover:shadow-[0_0_20px_rgba(34,197,94,0.5)] font-mono text-sm"
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+          {/* Left side - Text content */}
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            className="text-left"
           >
-            {">"} explore projects
-          </button>
+            <motion.div variants={itemVariants}>
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-4 text-primary neon-text">Tahira Nawab</h1>
+              <p className="text-lg sm:text-xl text-muted-foreground mb-2">aka {"{ tom }"}</p>
+            </motion.div>
 
-          <a
-            href="#contact"
-            className="px-6 py-3 border border-secondary text-secondary rounded hover:bg-secondary/10 transition-all duration-300 font-mono text-sm"
+            <motion.p variants={itemVariants} className="text-base sm:text-lg text-secondary mb-8 font-mono min-h-8">
+              {">"}
+              <span className="ml-2">{displayText}</span>
+              <span className="ml-1 cursor-blink">|</span>
+            </motion.p>
+
+            <motion.p
+              variants={itemVariants}
+              className="text-muted-foreground max-w-xl mb-12 leading-relaxed text-sm sm:text-base"
+            >
+              Fullstack dev crafting solutions with intention — from web apps to AI tools, automation utilities, and complex
+              system designs. Sometimes for users, sometimes for innovation, always driven by clarity, logic, and purpose.
+            </motion.p>
+
+            <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4">
+              <button
+                onClick={onOpenTerminal}
+                className="px-6 py-3 bg-primary text-primary-foreground rounded border border-primary hover:bg-primary/80 transition-all duration-300 hover:shadow-[0_0_20px_rgba(34,197,94,0.5)] font-mono text-sm w-fit"
+              >
+                {">"} explore projects
+              </button>
+
+              <a
+                href="#contact"
+                className="px-6 py-3 border border-secondary text-secondary rounded hover:bg-secondary/10 transition-all duration-300 font-mono text-sm w-fit"
+              >
+                get in touch
+              </a>
+            </motion.div>
+          </motion.div>
+
+          {/* Right side - Pixelated portrait */}
+          <motion.div
+            variants={imageVariants}
+            initial="hidden"
+            animate="visible"
+            className="hidden lg:flex items-center justify-center"
           >
-            get in touch
-          </a>
-        </motion.div>
-      </motion.div>
+            <div className="relative w-full max-w-sm aspect-square">
+              <Image
+                src="/pixelated-portrait.png"
+                alt="Tahira Nawab - Pixelated Portrait"
+                fill
+                className="object-contain filter drop-shadow-[0_0_20px_rgba(34,197,94,0.3)] hover:drop-shadow-[0_0_30px_rgba(34,197,94,0.5)] transition-all duration-300"
+                priority
+              />
+            </div>
+          </motion.div>
+        </div>
+      </div>
     </section>
   )
 }
