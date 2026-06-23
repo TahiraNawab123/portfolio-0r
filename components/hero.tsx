@@ -60,8 +60,8 @@ export default function Hero({ onOpenTerminal }: HeroProps) {
     <section id="home" className="relative min-h-screen pt-24 flex items-center justify-center overflow-hidden bg-background">
       <MatrixRain />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full h-full">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center h-full">
           {/* Left side - Text content */}
           <motion.div
             variants={containerVariants}
@@ -120,20 +120,20 @@ export default function Hero({ onOpenTerminal }: HeroProps) {
             </motion.div>
           </motion.div>
 
-          {/* Right side - Hero portrait */}
+          {/* Right side - Hero portrait merged with background */}
           <motion.div
             variants={imageVariants}
             initial="hidden"
             animate="visible"
             className="hidden lg:flex items-center justify-center relative h-full"
           >
-            <div className="relative w-full max-w-md aspect-auto">
+            <div className="relative w-full h-full flex items-center justify-center">
               <Image
                 src="/hero-portrait.png"
                 alt="Tahira Nawab - Neon Cyberpunk Portrait"
-                width={500}
-                height={600}
-                className="w-full h-auto object-contain filter drop-shadow-[0_0_30px_rgba(34,197,94,0.4)] hover:drop-shadow-[0_0_50px_rgba(34,197,94,0.6)] transition-all duration-300"
+                width={600}
+                height={700}
+                className="w-full h-auto object-contain mix-blend-screen drop-shadow-[0_0_40px_rgba(34,197,94,0.5)] hover:drop-shadow-[0_0_60px_rgba(34,197,94,0.7)] transition-all duration-300"
                 priority
               />
             </div>
