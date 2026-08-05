@@ -7,6 +7,7 @@ import Terminal from "@/components/terminal"
 import About from "@/components/about"
 import Projects from "@/components/projects"
 import Experience from "@/components/experience"
+import HireMe from "@/components/hire-me"
 import Contact from "@/components/contact"
 import Footer from "@/components/footer"
 
@@ -34,6 +35,7 @@ export default function Home() {
       <Projects />
 
       <Experience />
+      <HireMe />
       <Contact />
       <Footer />
 
