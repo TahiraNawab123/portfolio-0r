@@ -108,9 +108,7 @@ outside code, i'm into reading, design philosophy, productivity systems, and exp
             viewport={{ once: true }}
             className="flex justify-center items-center order-1 lg:order-2 py-8 lg:py-0"
           >
-            <div className="bg-gradient-to-br from-primary/5 to-secondary/5 rounded-2xl p-12 backdrop-blur-sm border border-primary/10">
-              <TechSphere />
-            </div>
+            <TechSphere />
           </motion.div>
         </div>
       </div>
