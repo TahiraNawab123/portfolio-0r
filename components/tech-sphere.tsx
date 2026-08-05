@@ -9,26 +9,37 @@ interface Tech {
 
 export default function TechSphere() {
   const containerRef = useRef<HTMLDivElement>(null)
-  const [rotation, setRotation] = useState({ x: 0, y: 0 })
+  const [rotation, setRotation] = useState({ x: -20, y: -30 })
+  const [isInteracting, setIsInteracting] = useState(false)
 
   const technologies: Tech[] = [
-    { name: "Python", color: "#3776ab" },
-    { name: "C++", color: "#00599c" },
-    { name: "TypeScript", color: "#3178c6" },
-    { name: "React", color: "#61dafb" },
+    { name: "JavaScript", color: "#F7DF1E" },
+    { name: "TypeScript", color: "#3178C6" },
+    { name: "HTML", color: "#E34C26" },
+    { name: "CSS", color: "#563D7C" },
+    { name: "React", color: "#61DAFB" },
     { name: "Next.js", color: "#ffffff" },
-    { name: "Tailwind", color: "#06b6d4" },
-    { name: "FastAPI", color: "#009688" },
-    { name: "Node.js", color: "#68a063" },
-    { name: "Docker", color: "#2496ed" },
-    { name: "Git", color: "#f1502f" },
-    { name: "Firebase", color: "#ffa726" },
-    { name: "MongoDB", color: "#13aa52" },
+    { name: "Tailwind CSS", color: "#06B6D4" },
+    { name: "Node.js", color: "#68A063" },
+    { name: "MongoDB", color: "#13AA52" },
+    { name: "PostgreSQL", color: "#336791" },
+    { name: "Docker", color: "#2496ED" },
+    { name: "Kubernetes", color: "#326CE5" },
+    { name: "Firebase", color: "#FFA726" },
+    { name: "Databases", color: "#F27C4E" },
+    { name: "Linux", color: "#FCC624" },
+    { name: "Vercel", color: "#000000" },
+    { name: "Git", color: "#F1502F" },
+    { name: "GitHub", color: "#ffffff" },
+    { name: "Figma", color: "#A259FF" },
+    { name: "Vite", color: "#646CFF" },
+    { name: "WebSockets", color: "#00D9FF" },
+    { name: "Postman", color: "#FF6C37" },
   ]
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
-      if (!containerRef.current) return
+      if (!containerRef.current || !isInteracting) return
 
       const rect = containerRef.current.getBoundingClientRect()
       const x = (e.clientY - rect.top - rect.height / 2) / 10
@@ -37,9 +48,28 @@ export default function TechSphere() {
       setRotation({ x, y })
     }
 
-    window.addEventListener("mousemove", handleMouseMove)
-    return () => window.removeEventListener("mousemove", handleMouseMove)
-  }, [])
+    const handleMouseEnter = () => setIsInteracting(true)
+    const handleMouseLeave = () => {
+      setIsInteracting(false)
+      // Reset to nice default angle
+      setRotation({ x: -20, y: -30 })
+    }
+
+    const container = containerRef.current
+    if (container) {
+      container.addEventListener("mouseenter", handleMouseEnter)
+      container.addEventListener("mouseleave", handleMouseLeave)
+      window.addEventListener("mousemove", handleMouseMove)
+    }
+
+    return () => {
+      if (container) {
+        container.removeEventListener("mouseenter", handleMouseEnter)
+        container.removeEventListener("mouseleave", handleMouseLeave)
+      }
+      window.removeEventListener("mousemove", handleMouseMove)
+    }
+  }, [isInteracting])
 
   // Distribute technologies on a sphere
   const getTechPosition = (index: number) => {
@@ -68,13 +98,13 @@ export default function TechSphere() {
         style={{
           transformStyle: "preserve-3d",
           transform: `rotateX(${rotation.x}deg) rotateY(${rotation.y}deg)`,
-          transition: "transform 0.1s ease-out",
+          transition: isInteracting ? "transform 0.05s ease-out" : "transform 0.6s ease-out",
         }}
       >
         {/* Center core */}
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-full shadow-lg shadow-primary/50 flex items-center justify-center">
-            <span className="text-xs font-bold text-primary-foreground">tom</span>
+            <span className="text-xs font-bold text-primary-foreground">Skills</span>
           </div>
         </div>
 
