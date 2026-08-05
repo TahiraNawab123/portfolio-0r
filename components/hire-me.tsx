@@ -16,9 +16,9 @@ export default function HireMe() {
         >
           <div className="flex flex-col items-center text-center space-y-6">
             <div>
-              <h2 className="text-3xl sm:text-4xl font-bold mb-3 text-primary">Interested in working together?</h2>
+              <h2 className="text-3xl sm:text-4xl font-bold mb-3 text-primary">Ready to hire?</h2>
               <p className="text-muted-foreground text-base sm:text-lg">
-                I&apos;m always open to discussing new projects, creative ideas, and opportunities.
+                If you&apos;re looking to hire a developer, let&apos;s talk. Get in touch and let&apos;s create something amazing together.
               </p>
             </div>
 
@@ -28,7 +28,7 @@ export default function HireMe() {
                 className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded border border-primary hover:bg-primary/80 transition-all duration-300 hover:shadow-[0_0_20px_rgba(34,197,94,0.5)] font-mono text-sm group"
               >
                 <Mail size={16} />
-                <span>Send me an email</span>
+                <span>Get in touch</span>
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
               </a>
 
@@ -39,7 +39,7 @@ export default function HireMe() {
                 className="inline-flex items-center justify-center gap-2 px-6 py-3 border border-secondary text-secondary rounded hover:bg-secondary/10 transition-all duration-300 font-mono text-sm group"
               >
                 <Linkedin size={16} />
-                <span>Let&apos;s connect on LinkedIn</span>
+                <span>View my profile</span>
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
               </a>
             </div>
