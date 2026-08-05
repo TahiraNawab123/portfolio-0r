@@ -5,6 +5,7 @@ import { useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import ProjectModal from "@/components/project-modal"
+import MatrixRain from "@/components/matrix-rain"
 
 interface Project {
   id: string
@@ -199,8 +200,9 @@ export default function ProjectsPage() {
   }
 
   return (
-    <main className="min-h-screen bg-background text-foreground py-20 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
+    <main className="relative min-h-screen bg-background text-foreground py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      <MatrixRain />
+      <div className="max-w-7xl mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -225,7 +227,7 @@ export default function ProjectsPage() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 relative">
           {projectsData.map((project, idx) => (
             <motion.div
               key={project.id}
