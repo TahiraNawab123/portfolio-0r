@@ -52,13 +52,13 @@ outside code, i'm into reading, design philosophy, productivity systems, and exp
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="space-y-4"
+            className="space-y-4 order-2 lg:order-1"
           >
             {/* Typing text */}
             <p className="text-muted-foreground leading-relaxed text-sm sm:text-base font-mono whitespace-pre-wrap min-h-24">
@@ -104,11 +104,13 @@ outside code, i'm into reading, design philosophy, productivity systems, and exp
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
-            className="flex justify-center items-center"
+            className="flex justify-center items-center order-1 lg:order-2 py-8 lg:py-0"
           >
-            <TechSphere />
+            <div className="bg-gradient-to-br from-primary/5 to-secondary/5 rounded-2xl p-12 backdrop-blur-sm border border-primary/10">
+              <TechSphere />
+            </div>
           </motion.div>
         </div>
       </div>
