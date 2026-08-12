@@ -22,6 +22,27 @@ interface Project {
 
 const projectsData: Project[] = [
   {
+    id: "double-shot",
+    title: "Double Shot",
+    shortDesc: "Coffee Shop Experience",
+    description:
+      "A thoughtfully designed coffee shop experience focused on warm visuals, clear navigation, and a welcoming digital presence for discovering the menu and story behind Double Shot.",
+    techStack: ["React", "JavaScript", "CSS", "Responsive Design"],
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-JFZaiAccbmIlrbaAHU1qWzh21lGWWP.png",
+    links: {
+      github: "https://github.com/TahiraNawab123/double-shot",
+    },
+  },
+  {
+    id: "quietspotmap",
+    title: "QuietSpotMap",
+    shortDesc: "Coming soon",
+    description:
+      "A location-focused project for discovering calm, comfortable places to work, study, or take a quiet break. Coming soon.",
+    techStack: ["React", "Maps", "JavaScript", "Responsive Design"],
+    image: "/analytics-dashboard-marketing.jpg",
+  },
+  {
     id: "lexora",
     title: "Lexora",
     shortDesc: "Legal-Tech Platform",
