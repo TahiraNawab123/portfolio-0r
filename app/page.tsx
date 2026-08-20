@@ -10,6 +10,7 @@ import Experience from "@/components/experience"
 import HireMe from "@/components/hire-me"
 import Contact from "@/components/contact"
 import Footer from "@/components/footer"
+import MatrixRain from "@/components/matrix-rain"
 
 export default function Home() {
   const [showTerminal, setShowTerminal] = useState(false)
@@ -27,8 +28,12 @@ export default function Home() {
   }, [showTerminal])
 
   return (
-    <main className="min-h-screen bg-background text-foreground overflow-x-hidden">
-      <Navigation />
+    <main className="relative min-h-screen overflow-x-hidden bg-background text-foreground">
+      <div className="pointer-events-none fixed inset-0 z-0 opacity-45" aria-hidden="true">
+        <MatrixRain />
+      </div>
+      <div className="relative z-10">
+        <Navigation />
       <Hero onOpenTerminal={() => setShowTerminal(true)} />
 
       <About />
@@ -37,9 +42,9 @@ export default function Home() {
       <Experience />
       <HireMe />
       <Contact />
-      <Footer />
-
-      {showTerminal && <Terminal onClose={() => setShowTerminal(false)} />}
+        <Footer />
+        {showTerminal && <Terminal onClose={() => setShowTerminal(false)} />}
+      </div>
     </main>
   )
 }

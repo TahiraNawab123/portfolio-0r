@@ -8,7 +8,8 @@ export default function Experience() {
       id="experience"
       className="relative border-t border-border/40 bg-background px-4 py-24 sm:px-6 lg:px-8"
     >
-      <div className="mx-auto max-w-4xl">
+      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,hsl(var(--background)/0.94)_0%,hsl(var(--background)/0.82)_42%,hsl(var(--background)/0.62)_100%)]" />
+      <div className="relative z-10 mx-auto max-w-4xl rounded border border-primary/15 bg-background/20 px-4 py-8 shadow-[0_0_35px_hsl(var(--primary)/0.05)] sm:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

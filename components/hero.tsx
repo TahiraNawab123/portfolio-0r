@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react"
 import { motion, useReducedMotion } from "framer-motion"
-import MatrixRain from "@/components/matrix-rain"
 
 interface HeroProps {
   onOpenTerminal: () => void
@@ -52,7 +51,6 @@ export default function Hero({ onOpenTerminal }: HeroProps) {
 
   return (
     <section id="home" className="relative flex min-h-screen items-center overflow-hidden px-4 pb-16 pt-28 sm:px-6 lg:px-8">
-      <MatrixRain />
       <div className="pointer-events-none absolute inset-0 z-[1] bg-[radial-gradient(circle_at_75%_45%,hsl(var(--primary)/0.11),transparent_28%),linear-gradient(90deg,hsl(var(--background)/0.72)_0%,hsl(var(--background)/0.2)_65%,transparent_100%)]" />
 
       <motion.div
