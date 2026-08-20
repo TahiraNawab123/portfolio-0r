@@ -6,7 +6,7 @@ export default function Experience() {
   return (
     <section
       id="experience"
-      className="relative border-t border-border/40 bg-background px-4 py-24 sm:px-6 lg:px-8"
+      className="relative border-t border-border/40 bg-background/78 px-4 py-24 sm:px-6 lg:px-8"
     >
       <div className="mx-auto max-w-4xl">
         <motion.div

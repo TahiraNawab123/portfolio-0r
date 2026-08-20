@@ -13,39 +13,43 @@ export default function MatrixRain() {
     if (!ctx) return
 
     const chars = "01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン"
-    const fontSize = 16
+    const fontSize = 17
     let animationFrame = 0
     let columns = 0
     let drops: number[] = []
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches
 
     const resize = () => {
-      canvas.width = Math.floor(window.innerWidth * 0.58)
-      canvas.height = window.innerHeight
-      columns = Math.ceil(canvas.width / fontSize)
-      drops = Array(columns).fill(0).map(() => Math.random() * canvas.height)
+      const dpr = Math.min(window.devicePixelRatio || 1, 2)
+      canvas.width = Math.floor(window.innerWidth * dpr)
+      canvas.height = Math.floor(window.innerHeight * dpr)
+      canvas.style.width = `${window.innerWidth}px`
+      canvas.style.height = `${window.innerHeight}px`
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0)
+      columns = Math.ceil(window.innerWidth / fontSize)
+      drops = Array.from({ length: columns }, () => Math.random() * window.innerHeight)
     }
 
     const draw = () => {
-      ctx.fillStyle = "rgba(5, 20, 10, 0.1)"
-      ctx.fillRect(0, 0, canvas.width, canvas.height)
+      ctx.fillStyle = "rgba(5, 20, 10, 0.12)"
+      ctx.fillRect(0, 0, window.innerWidth, window.innerHeight)
       ctx.fillStyle = "#22c55e"
-      ctx.shadowBlur = 0
       ctx.font = `${fontSize}px JetBrains Mono`
-      ctx.globalAlpha = 0.5
+      ctx.globalAlpha = 0.38
 
       for (let i = 0; i < drops.length; i++) {
         ctx.fillText(chars.charAt(Math.floor(Math.random() * chars.length)), i * fontSize, drops[i])
-        drops[i] += fontSize
-        if (drops[i] > canvas.height) drops[i] = 0
+        drops[i] += fontSize * 0.72
+        if (drops[i] > window.innerHeight + fontSize) drops[i] = -Math.random() * window.innerHeight
       }
 
       ctx.globalAlpha = 1
-      animationFrame = requestAnimationFrame(draw)
+      if (!reducedMotion) animationFrame = requestAnimationFrame(draw)
     }
 
     resize()
     window.addEventListener("resize", resize)
-    animationFrame = requestAnimationFrame(draw)
+    draw()
 
     return () => {
       cancelAnimationFrame(animationFrame)
@@ -53,5 +57,5 @@ export default function MatrixRain() {
     }
   }, [])
 
-  return <canvas ref={canvasRef} className="pointer-events-none fixed inset-y-0 left-0 z-0 w-[58vw] max-w-[58rem] opacity-20" aria-hidden="true" />
+  return <canvas ref={canvasRef} className="pointer-events-none fixed inset-0 z-0 h-full w-full opacity-[0.52]" aria-hidden="true" />
 }

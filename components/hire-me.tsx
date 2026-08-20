@@ -5,7 +5,7 @@ import { ArrowRight, Linkedin } from "lucide-react"
 
 export default function HireMe() {
   return (
-    <section className="relative border-t border-border/40 bg-background px-4 py-24 sm:px-6 lg:px-8">
+    <section className="relative border-t border-border/40 bg-background/78 px-4 py-24 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-4xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -13,7 +13,7 @@ export default function HireMe() {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <h2 className="mb-10 font-mono text-4xl font-bold tracking-tight sm:text-5xl">
+          <h2 className="mb-10 font-mono text-3xl font-bold tracking-tight sm:text-4xl">
             <span className="text-primary">$</span>
             <span className="text-foreground"> available_for_work</span>
           </h2>
