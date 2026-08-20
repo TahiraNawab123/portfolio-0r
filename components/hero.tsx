@@ -103,7 +103,13 @@ export default function Hero({ onOpenTerminal }: HeroProps) {
           transition={shouldReduceMotion ? undefined : { duration: 6, repeat: Infinity, ease: "easeInOut" }}
         >
           <div className="portrait-frame relative aspect-[4/5] overflow-hidden border border-primary/60 bg-card shadow-[0_0_45px_hsl(var(--primary)/0.13)]">
-            <img src={portraitUrl} alt="Monochrome portrait representing Tahira Nawab" className="portrait-image h-full w-full object-cover" />
+            <img
+              src={portraitUrl}
+              alt="Monochrome portrait representing Tahira Nawab"
+              className="portrait-image h-full w-full object-cover"
+              fetchPriority="high"
+              decoding="async"
+            />
             <div className="portrait-scanlines absolute inset-0" aria-hidden="true" />
             <div className="portrait-vignette absolute inset-0" aria-hidden="true" />
             <div className="absolute inset-x-4 top-4 flex justify-between font-mono text-[10px] uppercase tracking-[0.22em] text-primary">

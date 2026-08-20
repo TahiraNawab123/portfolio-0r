@@ -200,7 +200,7 @@
 }
 
 .portrait-scanlines {
-  background: repeating-linear-gradient(to bottom, transparent 0, transparent 4px, hsl(var(--primary) / 0.16) 5px, transparent 6px);
+  background: repeating-linear-gradient(to bottom, transparent 0, transparent 6px, hsl(var(--primary) / 0.13) 7px, transparent 8px);
   animation: scanline-drift 7s linear infinite;
   mix-blend-mode: screen;
 }

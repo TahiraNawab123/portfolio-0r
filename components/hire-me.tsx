@@ -5,33 +5,34 @@ import { ArrowRight, Linkedin } from "lucide-react"
 
 export default function HireMe() {
   return (
-    <section className="relative py-20 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-4xl mx-auto">
+    <section className="relative bg-gradient-to-b from-background to-card/10 px-4 py-20 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-4xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="border border-primary/30 rounded-lg p-8 sm:p-12 bg-card/50 backdrop-blur-sm hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10"
         >
-          <div className="flex flex-col items-center text-center gap-6">
-            <div className="max-w-2xl">
-              <p className="mb-3 font-mono text-xs uppercase tracking-[0.25em] text-secondary">Open to opportunities</p>
-              <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-primary">Ready to hire?</h2>
-              <p className="mt-4 text-muted-foreground text-base sm:text-lg leading-relaxed">
-                If you&apos;re looking to hire a developer, let&apos;s talk. Let&apos;s create something amazing together.
-              </p>
-            </div>
+          <div className="mb-12">
+            <h2 className="font-mono text-4xl font-bold sm:text-5xl">
+              <span className="text-primary">$</span>
+              <span className="text-foreground"> ready to hire?</span>
+            </h2>
+          </div>
 
+          <div className="flex flex-col gap-8 border-t border-border/50 pt-8 sm:flex-row sm:items-end sm:justify-between">
+            <p className="max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
+              If you&apos;re looking for a developer to build thoughtful web apps, AI tools, or automation systems, let&apos;s talk.
+            </p>
             <a
               href="https://www.linkedin.com/in/tahira-nawab"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 border border-secondary text-secondary rounded hover:bg-secondary/10 transition-all duration-300 font-mono text-sm group"
+              className="inline-flex shrink-0 items-center justify-center gap-2 rounded border border-secondary px-6 py-3 font-mono text-sm text-secondary hover:bg-secondary/10"
             >
               <Linkedin size={16} />
               <span>View my profile</span>
-              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+              <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
             </a>
           </div>
         </motion.div>
