@@ -63,23 +63,22 @@ export default function Hero({ onOpenTerminal }: HeroProps) {
       >
         <div className="w-full max-w-2xl text-center lg:text-left">
           <motion.div variants={itemVariants}>
-            <p className="mb-5 font-mono text-xs uppercase tracking-[0.32em] text-primary/70">// identity_loaded</p>
-            <h1 className="text-balance text-5xl font-bold tracking-tight text-primary neon-text sm:text-7xl lg:text-8xl">
+            <h1 className="text-balance text-4xl font-bold tracking-tight text-primary neon-text sm:text-6xl lg:text-7xl">
               Tahira Nawab
             </h1>
             <p className="mt-4 font-mono text-lg text-muted-foreground sm:text-xl">aka &#123; tom &#125;</p>
           </motion.div>
 
-          <motion.p variants={itemVariants} className="mt-8 min-h-8 font-mono text-sm text-secondary sm:text-base">
+          <motion.p variants={itemVariants} className="mt-6 min-h-8 font-mono text-xs text-secondary sm:text-sm">
             <span className="text-primary">{">"}</span>
             <span className="ml-2">{displayText}</span>
             <span className="ml-1 cursor-blink text-primary">|</span>
           </motion.p>
 
-          <motion.p variants={itemVariants} className="mx-auto mt-7 max-w-xl text-pretty text-sm leading-relaxed text-muted-foreground sm:text-base lg:mx-0">
-            Fullstack dev crafting solutions with intention — from web apps to AI tools, automation utilities, and complex
-            system designs. Sometimes for users, sometimes for innovation, always driven by clarity, logic, and purpose.
+          <motion.p variants={itemVariants} className="mx-auto mt-5 max-w-lg text-pretty text-sm leading-relaxed text-muted-foreground sm:text-base">
+            Fullstack dev building web apps, AI tools, and automation systems with clarity, logic, and purpose.
           </motion.p>
+
 
           <motion.div variants={itemVariants} className="mt-10 flex flex-col justify-center gap-4 sm:flex-row lg:justify-start">
             <button
