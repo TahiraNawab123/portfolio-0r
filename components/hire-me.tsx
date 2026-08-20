@@ -5,7 +5,7 @@ import { ArrowRight, Linkedin } from "lucide-react"
 
 export default function HireMe() {
   return (
-    <section className="relative bg-gradient-to-b from-background to-card/10 px-4 py-20 sm:px-6 lg:px-8">
+    <section className="relative border-t border-border/40 bg-background px-4 py-24 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-4xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -13,27 +13,31 @@ export default function HireMe() {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <div className="mb-12">
-            <h2 className="font-mono text-4xl font-bold sm:text-5xl">
-              <span className="text-primary">$</span>
-              <span className="text-foreground"> ready to hire?</span>
-            </h2>
-          </div>
+          <h2 className="mb-10 font-mono text-4xl font-bold tracking-tight sm:text-5xl">
+            <span className="text-primary">$</span>
+            <span className="text-foreground"> available_for_work</span>
+          </h2>
 
-          <div className="flex flex-col gap-8 border-t border-border/50 pt-8 sm:flex-row sm:items-end sm:justify-between">
-            <p className="max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
-              If you&apos;re looking for a developer to build thoughtful web apps, AI tools, or automation systems, let&apos;s talk.
-            </p>
-            <a
-              href="https://www.linkedin.com/in/tahira-nawab"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex shrink-0 items-center justify-center gap-2 rounded border border-secondary px-6 py-3 font-mono text-sm text-secondary hover:bg-secondary/10"
-            >
-              <Linkedin size={16} />
-              <span>View my profile</span>
-              <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
-            </a>
+          <div className="relative border-l border-primary/40 pl-5">
+            <span className="absolute -left-[5px] top-1 size-2 rounded-full bg-primary shadow-[0_0_12px_hsl(var(--primary)/0.8)]" />
+            <div className="flex flex-col gap-7 border-b border-border/40 pb-8 sm:flex-row sm:items-end sm:justify-between">
+              <div className="max-w-2xl">
+                <p className="mb-3 font-mono text-xs uppercase tracking-[0.2em] text-secondary">Open to thoughtful collaborations</p>
+                <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
+                  I&apos;m available for fullstack products, AI tools, and automation systems where clear thinking turns into useful software.
+                </p>
+              </div>
+              <a
+                href="https://www.linkedin.com/in/tahira-nawab"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex shrink-0 items-center justify-center gap-2 font-mono text-sm text-secondary transition-colors hover:text-primary"
+              >
+                <Linkedin size={16} />
+                <span>Start a conversation</span>
+                <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
+              </a>
+            </div>
           </div>
         </motion.div>
       </div>
