@@ -20,7 +20,8 @@ export default function MatrixRain() {
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches
 
     const resize = () => {
-      const dpr = Math.min(window.devicePixelRatio || 1, 2)
+      // Keep the decorative canvas lightweight while staying crisp enough for the background.
+      const dpr = 1
       canvas.width = Math.floor(window.innerWidth * dpr)
       canvas.height = Math.floor(window.innerHeight * dpr)
       canvas.style.width = `${window.innerWidth}px`

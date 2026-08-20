@@ -22,7 +22,7 @@ export default function HireMe() {
             <span className="absolute -left-[5px] top-1 size-2 rounded-full bg-primary shadow-[0_0_12px_hsl(var(--primary)/0.8)]" />
             <div className="flex flex-col gap-7 border-b border-border/40 pb-8 sm:flex-row sm:items-end sm:justify-between">
               <div className="max-w-2xl">
-                <p className="mb-3 font-mono text-xs uppercase tracking-[0.2em] text-secondary">Open to thoughtful collaborations</p>
+                <p className="mb-3 font-mono text-xs uppercase tracking-[0.2em] text-secondary">Open to collaborations</p>
                 <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
                   I&apos;m available for fullstack products, AI tools, and automation systems where clear thinking turns into useful software.
                 </p>
