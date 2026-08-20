@@ -26,11 +26,13 @@ export default function MatrixRain() {
     }
 
     const draw = () => {
-      ctx.fillStyle = "rgba(5, 20, 10, 0.16)"
+      ctx.fillStyle = "rgba(5, 20, 10, 0.12)"
       ctx.fillRect(0, 0, canvas.width, canvas.height)
-      ctx.fillStyle = "#22c55e"
+      ctx.fillStyle = "#39ff88"
+      ctx.shadowColor = "#22c55e"
+      ctx.shadowBlur = 8
       ctx.font = `${fontSize}px JetBrains Mono`
-      ctx.globalAlpha = 0.62
+      ctx.globalAlpha = 0.78
 
       for (let i = 0; i < drops.length; i++) {
         ctx.fillText(chars.charAt(Math.floor(Math.random() * chars.length)), i * fontSize, drops[i])
@@ -52,5 +54,5 @@ export default function MatrixRain() {
     }
   }, [])
 
-  return <canvas ref={canvasRef} className="pointer-events-none fixed inset-y-0 left-0 w-[58vw] max-w-[58rem] opacity-25" aria-hidden="true" />
+  return <canvas ref={canvasRef} className="pointer-events-none fixed inset-0 z-0 h-full w-full opacity-35" aria-hidden="true" />
 }
