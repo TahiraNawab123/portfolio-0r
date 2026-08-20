@@ -13,7 +13,7 @@ export default function MatrixRain() {
     if (!ctx) return
 
     const chars = "01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン"
-    const fontSize = 20
+    const fontSize = 16
     let animationFrame = 0
     let columns = 0
     let drops: number[] = []
@@ -26,18 +26,17 @@ export default function MatrixRain() {
     }
 
     const draw = () => {
-      ctx.fillStyle = "rgba(5, 20, 10, 0.12)"
+      ctx.fillStyle = "rgba(5, 20, 10, 0.1)"
       ctx.fillRect(0, 0, canvas.width, canvas.height)
-      ctx.fillStyle = "#39ff88"
-      ctx.shadowColor = "#22c55e"
-      ctx.shadowBlur = 8
+      ctx.fillStyle = "#22c55e"
+      ctx.shadowBlur = 0
       ctx.font = `${fontSize}px JetBrains Mono`
-      ctx.globalAlpha = 0.78
+      ctx.globalAlpha = 0.5
 
       for (let i = 0; i < drops.length; i++) {
         ctx.fillText(chars.charAt(Math.floor(Math.random() * chars.length)), i * fontSize, drops[i])
-        drops[i] += fontSize * 0.72
-        if (drops[i] > canvas.height && Math.random() > 0.975) drops[i] = 0
+        drops[i] += fontSize
+        if (drops[i] > canvas.height) drops[i] = 0
       }
 
       ctx.globalAlpha = 1
@@ -54,5 +53,5 @@ export default function MatrixRain() {
     }
   }, [])
 
-  return <canvas ref={canvasRef} className="pointer-events-none fixed inset-0 z-0 h-full w-full opacity-35" aria-hidden="true" />
+  return <canvas ref={canvasRef} className="pointer-events-none fixed inset-y-0 left-0 z-0 w-[58vw] max-w-[58rem] opacity-20" aria-hidden="true" />
 }
