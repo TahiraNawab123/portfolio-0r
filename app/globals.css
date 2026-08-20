@@ -179,6 +179,47 @@
   animation: pulse-glow 2s ease-in-out infinite;
 }
 
+@keyframes scanline-drift {
+  0% { transform: translateY(-18%); }
+  100% { transform: translateY(18%); }
+}
+
+@keyframes pixel-shimmer {
+  0%, 100% { opacity: 0.18; transform: translateX(0); }
+  50% { opacity: 0.34; transform: translateX(2px); }
+}
+
+.portrait-frame {
+  isolation: isolate;
+}
+
+.portrait-image {
+  filter: grayscale(1) sepia(1) hue-rotate(75deg) saturate(4) contrast(1.18) brightness(0.68);
+  mix-blend-mode: screen;
+  animation: pixel-shimmer 4s ease-in-out infinite;
+}
+
+.portrait-scanlines {
+  background: repeating-linear-gradient(to bottom, transparent 0, transparent 6px, hsl(var(--primary) / 0.13) 7px, transparent 8px);
+  animation: scanline-drift 7s linear infinite;
+  mix-blend-mode: screen;
+}
+
+.portrait-vignette {
+  background: radial-gradient(circle, transparent 34%, hsl(var(--background) / 0.62) 100%), linear-gradient(115deg, hsl(var(--primary) / 0.2), transparent 48%);
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .neon-text,
+  .cursor-blink,
+  .portrait-image,
+  .portrait-scanlines,
+  .pulse-glow {
+    animation: none;
+  }
+}
+
 /* Smooth transitions and active states */
 a {
   @apply transition-all duration-300;

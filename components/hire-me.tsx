@@ -5,34 +5,39 @@ import { ArrowRight, Linkedin } from "lucide-react"
 
 export default function HireMe() {
   return (
-    <section className="relative py-20 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-4xl mx-auto">
+    <section className="relative border-t border-border/40 bg-background px-4 py-24 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-4xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="border border-primary/30 rounded-lg p-8 sm:p-12 bg-card/50 backdrop-blur-sm hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10"
         >
-          <div className="flex flex-col items-center text-center gap-6">
-            <div className="max-w-2xl">
-              <p className="mb-3 font-mono text-xs uppercase tracking-[0.25em] text-secondary">Open to opportunities</p>
-              <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-primary">Ready to hire?</h2>
-              <p className="mt-4 text-muted-foreground text-base sm:text-lg leading-relaxed">
-                If you&apos;re looking to hire a developer, let&apos;s talk. Let&apos;s create something amazing together.
-              </p>
-            </div>
+          <h2 className="mb-10 font-mono text-4xl font-bold tracking-tight sm:text-5xl">
+            <span className="text-primary">$</span>
+            <span className="text-foreground"> available_for_work</span>
+          </h2>
 
-            <a
-              href="https://www.linkedin.com/in/tahira-nawab"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 border border-secondary text-secondary rounded hover:bg-secondary/10 transition-all duration-300 font-mono text-sm group"
-            >
-              <Linkedin size={16} />
-              <span>View my profile</span>
-              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-            </a>
+          <div className="relative border-l border-primary/40 pl-5">
+            <span className="absolute -left-[5px] top-1 size-2 rounded-full bg-primary shadow-[0_0_12px_hsl(var(--primary)/0.8)]" />
+            <div className="flex flex-col gap-7 border-b border-border/40 pb-8 sm:flex-row sm:items-end sm:justify-between">
+              <div className="max-w-2xl">
+                <p className="mb-3 font-mono text-xs uppercase tracking-[0.2em] text-secondary">Open to thoughtful collaborations</p>
+                <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
+                  I&apos;m available for fullstack products, AI tools, and automation systems where clear thinking turns into useful software.
+                </p>
+              </div>
+              <a
+                href="https://www.linkedin.com/in/tahira-nawab"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex shrink-0 items-center justify-center gap-2 font-mono text-sm text-secondary transition-colors hover:text-primary"
+              >
+                <Linkedin size={16} />
+                <span>Start a conversation</span>
+                <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
+              </a>
+            </div>
           </div>
         </motion.div>
       </div>

@@ -6,9 +6,9 @@ export default function Experience() {
   return (
     <section
       id="experience"
-      className="relative py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-background to-card/10"
+      className="relative border-t border-border/40 bg-background px-4 py-24 sm:px-6 lg:px-8"
     >
-      <div className="max-w-4xl mx-auto">
+      <div className="mx-auto max-w-4xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -16,32 +16,29 @@ export default function Experience() {
           viewport={{ once: true }}
           className="mb-16"
         >
-          <h2 className="text-4xl sm:text-5xl font-bold font-mono mb-12">
+          <h2 className="mb-10 font-mono text-4xl font-bold tracking-tight sm:text-5xl">
             <span className="text-primary">$</span>
             <span className="text-foreground"> experience</span>
           </h2>
 
-          {/* Intro paragraph */}
-          <div className="space-y-6 mb-12 text-muted-foreground leading-relaxed">
-            <p className="text-sm">
-              my work spans fullstack development, ui engineering, and real-world software systems. over time, i've
-              contributed to different projects, handled client work, and built practical tools across web and
-              command-line platforms.
+          <div className="mb-12 max-w-2xl border-l border-primary/40 pl-5 text-sm leading-relaxed text-muted-foreground">
+            <p>
+              My work spans fullstack development, UI engineering, and practical software systems built with clarity and purpose.
             </p>
           </div>
 
-          {/* Work experiences */}
-          <div className="space-y-8">
+          <div className="relative flex flex-col gap-0 border-l border-border/60">
             {/* Zee Outsourcing Solutions */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
-              className="bg-card border border-border/30 rounded p-6 hover:border-primary/50 transition-all duration-300"
+              className="relative border-b border-border/40 px-6 py-7 transition-colors duration-300 first:pt-0 last:border-b-0 hover:bg-card/30"
             >
-              <div className="mb-4">
-                <h3 className="text-lg font-bold text-foreground mb-1">Web Developer</h3>
+              <span className="absolute -left-[5px] top-8 size-2 rounded-full bg-primary shadow-[0_0_12px_hsl(var(--primary)/0.8)] first:top-0" />
+              <div className="mb-4 flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
+                <h3 className="text-lg font-bold text-foreground">Web Developer</h3>
                 <p className="text-sm text-primary font-mono">Zee Outsourcing Solutions</p>
               </div>
               <p className="text-sm text-muted-foreground leading-relaxed">
@@ -57,10 +54,11 @@ export default function Experience() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
               viewport={{ once: true }}
-              className="bg-card border border-border/30 rounded p-6 hover:border-primary/50 transition-all duration-300"
+              className="relative border-b border-border/40 px-6 py-7 transition-colors duration-300 first:pt-0 last:border-b-0 hover:bg-card/30"
             >
-              <div className="mb-4">
-                <h3 className="text-lg font-bold text-foreground mb-1">Software Engineering Intern</h3>
+              <span className="absolute -left-[5px] top-8 size-2 rounded-full bg-primary shadow-[0_0_12px_hsl(var(--primary)/0.8)] first:top-0" />
+              <div className="mb-4 flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
+                <h3 className="text-lg font-bold text-foreground">Software Engineering Intern</h3>
                 <p className="text-sm text-primary font-mono">Nexium</p>
               </div>
               <p className="text-sm text-muted-foreground leading-relaxed">
@@ -76,10 +74,11 @@ export default function Experience() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
-              className="bg-card border border-border/30 rounded p-6 hover:border-primary/50 transition-all duration-300"
+              className="relative border-b border-border/40 px-6 py-7 transition-colors duration-300 first:pt-0 last:border-b-0 hover:bg-card/30"
             >
-              <div className="mb-4">
-                <h3 className="text-lg font-bold text-foreground mb-1">Technical & Academic Projects</h3>
+              <span className="absolute -left-[5px] top-8 size-2 rounded-full bg-primary shadow-[0_0_12px_hsl(var(--primary)/0.8)] first:top-0" />
+              <div className="mb-4 flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
+                <h3 className="text-lg font-bold text-foreground">Technical & Academic Projects</h3>
               </div>
               <p className="text-sm text-muted-foreground leading-relaxed">
                 from legal-tech platforms to web apps, automation tools, and cli-based systems — delivered structured
