@@ -13,7 +13,7 @@ export default function MatrixRain() {
     if (!ctx) return
 
     const chars = "01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン"
-    const fontSize = 12
+    const fontSize = 13
     let animationFrame = 0
     let columns = 0
     let drops: number[] = []

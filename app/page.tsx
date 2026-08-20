@@ -30,7 +30,7 @@ export default function Home() {
   return (
     <main className="relative min-h-screen overflow-x-hidden bg-background text-foreground">
       <MatrixRain />
-      <div className="pointer-events-none fixed inset-0 z-[1] bg-background/45" aria-hidden="true" />
+      <div className="pointer-events-none fixed inset-0 z-[1] bg-background/38" aria-hidden="true" />
       <div className="relative z-10">
         <Navigation />
       <Hero onOpenTerminal={() => setShowTerminal(true)} />
