@@ -33,6 +33,36 @@ const projectsData: Project[] = [
     },
   },
   {
+    id: "snake-game",
+    title: "Snake Game",
+    shortDesc: "Retro Arcade App",
+    description:
+      "A polished mobile-first take on the classic Snake experience, pairing nostalgic arcade mechanics with a focused interface, responsive controls, and a tactile game-room presentation.",
+    techStack: ["JavaScript", "HTML/CSS", "Game Logic", "Responsive Design"],
+    image: "/snake-game-project.png",
+    links: {
+      github: "https://github.com/TahiraNawab123/snake_game",
+    },
+  },
+  {
+    id: "chess-game",
+    title: "Chess Game",
+    shortDesc: "Coming soon",
+    description:
+      "A thoughtful chess experience in progress, designed around calm gameplay, clear board interactions, and a refined interface for strategic play. Coming soon.",
+    techStack: ["JavaScript", "Game Logic", "UI Design"],
+    image: "/chess-game-project.png",
+  },
+  {
+    id: "pairly",
+    title: "Pairly",
+    shortDesc: "Coming soon",
+    description:
+      "A social connection app concept focused on meaningful matches, approachable interactions, and a clean product experience. Coming soon.",
+    techStack: ["React", "JavaScript", "Product Design"],
+    image: "/pairly-project.png",
+  },
+  {
     id: "quietspotmap",
     title: "QuietSpotMap",
     shortDesc: "Coming soon",
