@@ -64,6 +64,15 @@ const projectsData: Project[] = [
     image: "/pairly-project.png",
   },
   {
+    id: "sudoku",
+    title: "Sudoku",
+    shortDesc: "Coming soon",
+    description:
+      "A focused Sudoku experience currently in development, with a clean puzzle interface, adjustable difficulty, and thoughtful tools for solving at your own pace. Coming soon.",
+    techStack: ["JavaScript", "Game Logic", "UI Design", "Responsive Design"],
+    image: "/sudoku-project.png",
+  },
+  {
     id: "quietspotmap",
     title: "QuietSpotMap",
     shortDesc: "Coming soon",
