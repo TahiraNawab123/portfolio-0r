@@ -355,6 +355,7 @@ export default function Projects() {
         >
           <Link
             href="/projects"
+            prefetch
             className="px-8 py-3 font-mono text-sm border border-primary/50 text-primary hover:bg-primary/10 hover:border-primary transition-all duration-300 rounded inline-block"
           >
             view all projects →
