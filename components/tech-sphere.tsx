@@ -38,6 +38,9 @@ export default function TechSphere() {
   ]
 
   useEffect(() => {
+    const container = containerRef.current
+    if (!container) return
+
     const handleMouseMove = (e: MouseEvent) => {
       if (!containerRef.current || !isInteracting) return
 
@@ -55,7 +58,6 @@ export default function TechSphere() {
       setRotation({ x: -20, y: -30 })
     }
 
-    const container = containerRef.current
     if (container) {
       container.addEventListener("mouseenter", handleMouseEnter)
       container.addEventListener("mouseleave", handleMouseLeave)
@@ -63,10 +65,8 @@ export default function TechSphere() {
     }
 
     return () => {
-      if (container) {
-        container.removeEventListener("mouseenter", handleMouseEnter)
-        container.removeEventListener("mouseleave", handleMouseLeave)
-      }
+      container.removeEventListener("mouseenter", handleMouseEnter)
+      container.removeEventListener("mouseleave", handleMouseLeave)
       window.removeEventListener("mousemove", handleMouseMove)
     }
   }, [isInteracting])
@@ -88,7 +88,7 @@ export default function TechSphere() {
   return (
     <div
       ref={containerRef}
-      className="relative w-80 h-80 flex items-center justify-center"
+      className="relative flex h-80 w-80 items-center justify-center"
       style={{
         perspective: "1000px",
       }}
@@ -103,7 +103,7 @@ export default function TechSphere() {
       >
         {/* Center core */}
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-full shadow-lg shadow-primary/50 flex items-center justify-center">
+          <div className="flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-primary to-secondary shadow-lg shadow-primary/50">
             <span className="text-xs font-bold text-primary-foreground">Skills</span>
           </div>
         </div>
@@ -117,7 +117,7 @@ export default function TechSphere() {
           return (
             <div
               key={tech.name}
-              className="absolute w-12 h-12 flex items-center justify-center"
+              className="absolute flex h-12 w-12 items-center justify-center"
               style={{
                 transform: `translateX(${pos.x}px) translateY(${pos.y}px) translateZ(${pos.z}px) scale(${scale})`,
                 transformStyle: "preserve-3d",

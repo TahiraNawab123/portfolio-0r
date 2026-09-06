@@ -36,23 +36,23 @@ outside code, i'm into reading, design philosophy, productivity systems, and exp
   }, [isFullMode, fullText, tldrText])
 
   return (
-    <section id="about" ref={containerRef} className="relative py-20 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
+    <section id="about" ref={containerRef} className="relative overflow-hidden px-4 py-14 sm:px-6 sm:py-20 lg:px-8">
+      <div className="mx-auto max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="mb-12"
+          className="mb-8 sm:mb-12"
         >
-          <h2 className="text-5xl sm:text-6xl font-bold">
+          <h2 className="text-4xl font-bold leading-tight sm:text-6xl">
             <span className="text-primary">{"{"}</span>
             <span className="text-foreground"> about </span>
             <span className="text-primary">{"}"}</span>
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+        <div className="grid grid-cols-1 items-center gap-10 sm:gap-14 lg:grid-cols-2 lg:gap-24">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -106,7 +106,7 @@ outside code, i'm into reading, design philosophy, productivity systems, and exp
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
-            className="flex justify-center items-center order-1 lg:order-2 py-8 lg:py-0"
+            className="order-1 mt-10 flex w-full min-w-0 scale-75 items-center justify-center py-0 sm:mt-0 sm:scale-100 sm:py-8 lg:order-2 lg:py-0"
           >
             <TechSphere />
           </motion.div>

@@ -5,6 +5,7 @@ import { useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import ProjectModal from "@/components/project-modal"
+import ProjectActions from "@/components/project-actions"
 import MatrixRain from "@/components/matrix-rain"
 
 interface Project {
@@ -18,6 +19,7 @@ interface Project {
     github?: string
     live?: string
   }
+  status?: string
 }
 
 const projectsData: Project[] = [
@@ -49,6 +51,7 @@ const projectsData: Project[] = [
     id: "chess-game",
     title: "Chess Game",
     shortDesc: "Coming soon",
+    status: "Coming Soon",
     description:
       "A thoughtful chess experience in progress, designed around calm gameplay, clear board interactions, and a refined interface for strategic play. Coming soon.",
     techStack: ["JavaScript", "Game Logic", "UI Design"],
@@ -58,6 +61,7 @@ const projectsData: Project[] = [
     id: "pairly",
     title: "Pairly",
     shortDesc: "Coming soon",
+    status: "Coming Soon",
     description:
       "A social connection app concept focused on meaningful matches, approachable interactions, and a clean product experience. Coming soon.",
     techStack: ["React", "JavaScript", "Product Design"],
@@ -67,6 +71,7 @@ const projectsData: Project[] = [
     id: "sudoku",
     title: "Sudoku",
     shortDesc: "Coming soon",
+    status: "Coming Soon",
     description:
       "A focused Sudoku experience currently in development, with a clean puzzle interface, adjustable difficulty, and thoughtful tools for solving at your own pace. Coming soon.",
     techStack: ["JavaScript", "Game Logic", "UI Design", "Responsive Design"],
@@ -76,6 +81,7 @@ const projectsData: Project[] = [
     id: "quietspotmap",
     title: "QuietSpotMap",
     shortDesc: "Coming soon",
+    status: "Coming Soon",
     description:
       "A location-focused project for discovering calm, comfortable places to work, study, or take a quiet break. Coming soon.",
     techStack: ["React", "Maps", "JavaScript", "Responsive Design"],
@@ -174,7 +180,7 @@ const projectsData: Project[] = [
     techStack: ["Python", "Pygame", "Game Logic", "OOP"],
     image: "/omnidex-ben10-game.jpg",
     links: {
-      github: "https://github.com/TahiraNawab123/OMNIDEX",
+      github: "https://github.com/TahiraNawab123/ben10",
     },
   },
   {
@@ -343,8 +349,18 @@ export default function ProjectsPage() {
                   </div>
                 </div>
 
-                <div className="px-6 pb-4 border-t border-border/20">
-                  <button className="w-full py-2 text-sm font-mono text-primary hover:text-foreground transition-colors">
+                <div className="px-6 pb-5 border-t border-border/20 pt-4">
+                  <ProjectActions
+                    github={project.links?.github}
+                    live={project.links?.live}
+                    status={project.status}
+                    compact
+                  />
+                  <button
+                    type="button"
+                    className="mt-3 w-full text-left text-xs font-mono text-primary transition-colors hover:text-foreground"
+                    aria-label={`View details for ${project.title}`}
+                  >
                     view details →
                   </button>
                 </div>
