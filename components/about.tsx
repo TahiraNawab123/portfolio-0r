@@ -36,8 +36,8 @@ outside code, i'm into reading, design philosophy, productivity systems, and exp
   }, [isFullMode, fullText, tldrText])
 
   return (
-    <section id="about" ref={containerRef} className="relative py-20 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
+    <section id="about" ref={containerRef} className="relative overflow-hidden px-4 py-[clamp(4rem,8vw,7rem)] sm:px-6 lg:px-8">
+      <div className="mx-auto w-full max-w-[90rem]">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -52,7 +52,7 @@ outside code, i'm into reading, design philosophy, productivity systems, and exp
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+        <div className="grid grid-cols-1 items-center gap-12 md:gap-16 lg:grid-cols-2 lg:gap-[clamp(3rem,8vw,8rem)]">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}

@@ -57,9 +57,9 @@ export default function Hero({ onOpenTerminal }: HeroProps) {
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="relative z-10 mx-auto flex w-full max-w-6xl flex-col items-center gap-14 lg:flex-row lg:justify-between lg:gap-16"
+        className="relative z-10 mx-auto flex w-full max-w-[90rem] flex-col items-center gap-12 px-1 sm:gap-14 lg:flex-row lg:justify-between lg:gap-[clamp(2rem,6vw,7rem)]"
       >
-        <div className="w-full max-w-2xl text-center lg:text-left">
+        <div className="w-full max-w-[45rem] text-center lg:text-left">
           <motion.div variants={itemVariants}>
             <h1 className="text-balance text-4xl font-bold tracking-tight text-primary neon-text sm:text-6xl lg:text-7xl">
               Tahira Nawab

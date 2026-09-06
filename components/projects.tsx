@@ -319,7 +319,7 @@ export default function Projects() {
                   <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent" />
                 </div>
 
-                <div className="p-6 flex-1 flex flex-col">
+                <div className="flex flex-1 flex-col p-4 sm:p-6">
                   <h3 className="text-xl font-bold mb-2 text-foreground group-hover:text-primary transition-colors">
                     {project.title}
                   </h3>
@@ -342,7 +342,7 @@ export default function Projects() {
                   </div>
                 </div>
 
-                <div className="px-6 pb-5 border-t border-border/20 pt-4">
+                <div className="border-t border-border/20 px-4 pb-4 pt-4 sm:px-6 sm:pb-5">
                   <ProjectActions
                     github={project.links?.github}
                     live={project.links?.live}
