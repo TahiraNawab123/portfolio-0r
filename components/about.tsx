@@ -106,7 +106,7 @@ outside code, i'm into reading, design philosophy, productivity systems, and exp
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
-            className="order-1 flex w-full min-w-0 items-center justify-center overflow-hidden py-2 sm:py-8 lg:order-2 lg:py-0"
+            className="order-1 flex w-full min-w-0 scale-75 items-center justify-center py-0 sm:scale-100 sm:py-8 lg:order-2 lg:py-0"
           >
             <TechSphere />
           </motion.div>
