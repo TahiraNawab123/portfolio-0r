@@ -59,7 +59,7 @@ export default function Hero({ onOpenTerminal }: HeroProps) {
         animate="visible"
         className="relative z-10 mx-auto flex w-full max-w-6xl flex-col items-center gap-14 lg:flex-row lg:justify-between lg:gap-16"
       >
-        <div className="w-full max-w-2xl text-center lg:text-left">
+        <div className="w-full max-w-2xl text-left">
           <motion.div variants={itemVariants}>
             <h1 className="text-balance text-4xl font-bold tracking-tight text-primary neon-text sm:text-6xl lg:text-7xl">
               Tahira Nawab
@@ -69,11 +69,11 @@ export default function Hero({ onOpenTerminal }: HeroProps) {
 
           <motion.p variants={itemVariants} className="mt-6 min-h-8 font-mono text-xs text-secondary sm:text-sm">
             <span className="text-primary">{">"}</span>
-            <span className="ml-2">{displayText}</span>
+            <span>{displayText}</span>
             <span className="ml-1 cursor-blink text-primary">|</span>
           </motion.p>
 
-          <motion.p variants={itemVariants} className="mx-auto mt-5 max-w-lg text-pretty text-sm leading-relaxed text-muted-foreground sm:text-base">
+          <motion.p variants={itemVariants} className="mt-5 max-w-lg text-pretty text-sm leading-relaxed text-muted-foreground sm:text-base">
             Full-Stack Developer building clean systems, solving real problems, and crafting meaningful digital experiences.
           </motion.p>
 
