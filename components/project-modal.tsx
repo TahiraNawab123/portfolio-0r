@@ -1,6 +1,7 @@
 "use client"
 
 import { motion, AnimatePresence } from "framer-motion"
+import ProjectActions from "@/components/project-actions"
 
 interface Project {
   id: string
@@ -13,6 +14,7 @@ interface Project {
     github?: string
     live?: string
   }
+  status?: string
 }
 
 interface ProjectModalProps {
@@ -70,33 +72,11 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
               </div>
             </div>
 
-            <div className="flex gap-4 pt-4 border-t border-border/30">
-              {project.links?.live && (
-                <a
-                  href={project.links.live}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex-1 py-2 px-4 bg-primary text-primary-foreground rounded hover:bg-primary/80 transition-colors text-center text-sm font-mono"
-                >
-                  Live Demo
-                </a>
-              )}
-              {project.links?.github && (
-                <a
-                  href={project.links.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex-1 py-2 px-4 border border-secondary text-secondary rounded hover:bg-secondary/10 transition-colors text-center text-sm font-mono"
-                >
-                  GitHub
-                </a>
-              )}
-              {!project.links?.live && !project.links?.github && (
-                <button className="flex-1 py-2 px-4 bg-primary/20 text-primary rounded cursor-default text-sm font-mono">
-                  Coming Soon
-                </button>
-              )}
-            </div>
+            <ProjectActions
+              github={project.links?.github}
+              live={project.links?.live}
+              status={project.status}
+            />
           </div>
         </motion.div>
       </motion.div>
