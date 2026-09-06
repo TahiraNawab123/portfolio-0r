@@ -110,20 +110,6 @@
   /* Added smooth scroll behavior */
   html {
     scroll-behavior: smooth;
-    overflow-x: hidden;
-  }
-
-  img,
-  svg,
-  video,
-  canvas {
-    max-width: 100%;
-  }
-
-  pre,
-  code {
-    max-width: 100%;
-    overflow-wrap: anywhere;
   }
 }
 

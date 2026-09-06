@@ -11,7 +11,6 @@ export default function TechSphere() {
   const containerRef = useRef<HTMLDivElement>(null)
   const [rotation, setRotation] = useState({ x: -20, y: -30 })
   const [isInteracting, setIsInteracting] = useState(false)
-  const [sphereSize, setSphereSize] = useState(320)
 
   const technologies: Tech[] = [
     { name: "JavaScript", color: "#F7DF1E" },
@@ -37,23 +36,6 @@ export default function TechSphere() {
     { name: "WebSockets", color: "#00D9FF" },
     { name: "Postman", color: "#FF6C37" },
   ]
-
-  useEffect(() => {
-    const updateSphereSize = () => {
-      const width = containerRef.current?.parentElement?.clientWidth ?? window.innerWidth
-      setSphereSize(Math.min(420, Math.max(220, width - 32)))
-    }
-
-    updateSphereSize()
-    const observer = new ResizeObserver(updateSphereSize)
-    if (containerRef.current?.parentElement) observer.observe(containerRef.current.parentElement)
-    window.addEventListener("resize", updateSphereSize)
-
-    return () => {
-      observer.disconnect()
-      window.removeEventListener("resize", updateSphereSize)
-    }
-  }, [])
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -95,7 +77,7 @@ export default function TechSphere() {
     const phi = Math.acos(1 - (2 * index) / total)
     const theta = Math.sqrt(total * Math.PI) * phi
 
-    const radius = sphereSize * 0.45
+    const radius = 150
     const x = radius * Math.cos(theta) * Math.sin(phi)
     const y = radius * Math.sin(theta) * Math.sin(phi)
     const z = radius * Math.cos(phi)
@@ -106,7 +88,7 @@ export default function TechSphere() {
   return (
     <div
       ref={containerRef}
-      className="relative aspect-square w-full max-w-[26rem] min-w-0 flex items-center justify-center"
+      className="relative w-80 h-80 flex items-center justify-center"
       style={{
         perspective: "1000px",
       }}
@@ -121,7 +103,7 @@ export default function TechSphere() {
       >
         {/* Center core */}
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="flex size-[clamp(3.5rem,16vw,5rem)] items-center justify-center rounded-full bg-gradient-to-br from-primary to-secondary shadow-lg shadow-primary/50">
+          <div className="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-full shadow-lg shadow-primary/50 flex items-center justify-center">
             <span className="text-xs font-bold text-primary-foreground">Skills</span>
           </div>
         </div>
