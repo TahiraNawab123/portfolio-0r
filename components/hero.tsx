@@ -74,7 +74,7 @@ export default function Hero({ onOpenTerminal }: HeroProps) {
           </motion.p>
 
           <motion.p variants={itemVariants} className="mx-auto mt-5 max-w-lg text-pretty text-sm leading-relaxed text-muted-foreground sm:text-base">
-            Fullstack dev building web apps, AI tools, and automation systems with clarity, logic, and purpose.
+            Full-Stack Developer building clean systems, solving real problems, and crafting meaningful digital experiences.
           </motion.p>
 
 

@@ -11,6 +11,8 @@ export default function TechSphere() {
   const containerRef = useRef<HTMLDivElement>(null)
   const [rotation, setRotation] = useState({ x: -20, y: -30 })
   const [isInteracting, setIsInteracting] = useState(false)
+  const [sphereSize, setSphereSize] = useState(320)
+  const [shouldReduceMotion, setShouldReduceMotion] = useState(false)
 
   const technologies: Tech[] = [
     { name: "JavaScript", color: "#F7DF1E" },
@@ -38,8 +40,23 @@ export default function TechSphere() {
   ]
 
   useEffect(() => {
+    const container = containerRef.current
+    if (!container) return
+
+    const updateSize = () => {
+      setSphereSize(Math.min(320, Math.max(250, container.clientWidth)))
+    }
+    const resizeObserver = new ResizeObserver(updateSize)
+    resizeObserver.observe(container)
+    updateSize()
+
+    const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)")
+    const updateMotionPreference = () => setShouldReduceMotion(motionQuery.matches)
+    updateMotionPreference()
+    motionQuery.addEventListener("change", updateMotionPreference)
+
     const handleMouseMove = (e: MouseEvent) => {
-      if (!containerRef.current || !isInteracting) return
+      if (!containerRef.current || !isInteracting || shouldReduceMotion) return
 
       const rect = containerRef.current.getBoundingClientRect()
       const x = (e.clientY - rect.top - rect.height / 2) / 10
@@ -48,6 +65,11 @@ export default function TechSphere() {
       setRotation({ x, y })
     }
 
+    const handlePointerDown = () => setIsInteracting(true)
+    const handlePointerUp = () => {
+      setIsInteracting(false)
+      setRotation({ x: -20, y: -30 })
+    }
     const handleMouseEnter = () => setIsInteracting(true)
     const handleMouseLeave = () => {
       setIsInteracting(false)
@@ -55,21 +77,26 @@ export default function TechSphere() {
       setRotation({ x: -20, y: -30 })
     }
 
-    const container = containerRef.current
     if (container) {
       container.addEventListener("mouseenter", handleMouseEnter)
       container.addEventListener("mouseleave", handleMouseLeave)
+      container.addEventListener("pointerdown", handlePointerDown)
+      container.addEventListener("pointerup", handlePointerUp)
+      container.addEventListener("pointercancel", handlePointerUp)
       window.addEventListener("mousemove", handleMouseMove)
     }
 
     return () => {
-      if (container) {
-        container.removeEventListener("mouseenter", handleMouseEnter)
-        container.removeEventListener("mouseleave", handleMouseLeave)
-      }
+      resizeObserver.disconnect()
+      motionQuery.removeEventListener("change", updateMotionPreference)
+      container.removeEventListener("mouseenter", handleMouseEnter)
+      container.removeEventListener("mouseleave", handleMouseLeave)
+      container.removeEventListener("pointerdown", handlePointerDown)
+      container.removeEventListener("pointerup", handlePointerUp)
+      container.removeEventListener("pointercancel", handlePointerUp)
       window.removeEventListener("mousemove", handleMouseMove)
     }
-  }, [isInteracting])
+  }, [isInteracting, shouldReduceMotion])
 
   // Distribute technologies on a sphere
   const getTechPosition = (index: number) => {
@@ -77,7 +104,7 @@ export default function TechSphere() {
     const phi = Math.acos(1 - (2 * index) / total)
     const theta = Math.sqrt(total * Math.PI) * phi
 
-    const radius = 150
+    const radius = sphereSize * 0.46875
     const x = radius * Math.cos(theta) * Math.sin(phi)
     const y = radius * Math.sin(theta) * Math.sin(phi)
     const z = radius * Math.cos(phi)
@@ -88,9 +115,10 @@ export default function TechSphere() {
   return (
     <div
       ref={containerRef}
-      className="relative w-80 h-80 flex items-center justify-center"
+      className="relative flex aspect-square w-full max-w-[20rem] touch-none items-center justify-center"
       style={{
         perspective: "1000px",
+        width: "min(100%, 20rem)",
       }}
     >
       <div
@@ -103,7 +131,7 @@ export default function TechSphere() {
       >
         {/* Center core */}
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-full shadow-lg shadow-primary/50 flex items-center justify-center">
+          <div className="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-primary to-secondary shadow-lg shadow-primary/50 sm:h-16 sm:w-16">
             <span className="text-xs font-bold text-primary-foreground">Skills</span>
           </div>
         </div>
@@ -117,7 +145,7 @@ export default function TechSphere() {
           return (
             <div
               key={tech.name}
-              className="absolute w-12 h-12 flex items-center justify-center"
+              className="absolute flex h-10 w-10 items-center justify-center sm:h-12 sm:w-12"
               style={{
                 transform: `translateX(${pos.x}px) translateY(${pos.y}px) translateZ(${pos.z}px) scale(${scale})`,
                 transformStyle: "preserve-3d",
@@ -130,7 +158,7 @@ export default function TechSphere() {
                   color: tech.color,
                   borderColor: tech.color,
                   backgroundColor: `${tech.color}10`,
-                  boxShadow: scale > 0.8 ? `0 0 15px ${tech.color}40` : "none",
+                  boxShadow: shouldReduceMotion || scale <= 0.8 ? "none" : `0 0 15px ${tech.color}40`,
                 }}
               >
                 {tech.name}
