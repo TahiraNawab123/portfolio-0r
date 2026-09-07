@@ -58,7 +58,7 @@ outside code, i'm into reading, design philosophy, productivity systems, and exp
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="space-y-4 order-2 lg:order-1"
+            className="order-1 space-y-4"
           >
             {/* Typing text */}
             <p className="text-muted-foreground leading-relaxed text-sm sm:text-base font-mono whitespace-pre-wrap min-h-24">
@@ -106,7 +106,7 @@ outside code, i'm into reading, design philosophy, productivity systems, and exp
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
-            className="order-1 mt-10 flex w-full min-w-0 scale-75 items-center justify-center py-0 sm:mt-0 sm:scale-100 sm:py-8 lg:order-2 lg:py-0"
+            className="order-2 mt-2 flex w-full min-w-0 items-center justify-center pt-16 sm:mt-0 sm:py-8 sm:pt-8 lg:order-2 lg:py-0"
           >
             <TechSphere />
           </motion.div>
