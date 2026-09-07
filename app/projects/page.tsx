@@ -368,13 +368,6 @@ export default function ProjectsPage() {
                     status={project.status}
                     compact
                   />
-                  <button
-                    type="button"
-                    className="mt-3 w-full text-left text-xs font-mono text-primary transition-colors hover:text-foreground"
-                    aria-label={`View details for ${project.title}`}
-                  >
-                    view details →
-                  </button>
                 </div>
               </div>
             </motion.div>
