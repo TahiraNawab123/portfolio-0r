@@ -48,7 +48,6 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
             animate={shouldReduceMotion ? undefined : { rotate: 360 }}
             transition={{ duration: 2.4, repeat: Infinity, ease: "linear" }}
           />
-          <span className="text-4xl font-bold text-primary neon-text">a</span>
         </div>
         <div className="w-full space-y-2">
           <div className="flex items-center justify-between text-[10px] uppercase tracking-[0.25em] text-muted-foreground">

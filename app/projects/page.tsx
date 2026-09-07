@@ -33,6 +33,7 @@ const projectsData: Project[] = [
     image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-JFZaiAccbmIlrbaAHU1qWzh21lGWWP.png",
     links: {
       github: "https://github.com/TahiraNawab123/double-shot",
+      live: "https://v0-double-shot.vercel.app",
     },
   },
   {
@@ -253,6 +254,7 @@ const projectsData: Project[] = [
     image: "/smart-invoice-payroll-platform.png",
     links: {
       github: "https://github.com/TahiraNawab123/smart-invoice-payroll-platform",
+      live: "https://smart-invoice-payroll-platform.vercel.app",
     },
   },
   {
