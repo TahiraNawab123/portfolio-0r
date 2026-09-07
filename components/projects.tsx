@@ -32,6 +32,7 @@ const projectsData: Project[] = [
     image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-JFZaiAccbmIlrbaAHU1qWzh21lGWWP.png",
     links: {
       github: "https://github.com/TahiraNawab123/double-shot",
+      live: "https://v0-double-shot.vercel.app",
     },
   },
   {
@@ -55,6 +56,9 @@ const projectsData: Project[] = [
       "A thoughtful chess experience in progress, designed around calm gameplay, clear board interactions, and a refined interface for strategic play. Coming soon.",
     techStack: ["JavaScript", "Game Logic", "UI Design"],
     image: "/chess-game-project.png",
+    links: {
+      github: "https://github.com/TahiraNawab123/chess-game",
+    },
   },
   {
     id: "pairly",
@@ -65,6 +69,9 @@ const projectsData: Project[] = [
       "A social connection app concept focused on meaningful matches, approachable interactions, and a clean product experience. Coming soon.",
     techStack: ["React", "JavaScript", "Product Design"],
     image: "/pairly-project.png",
+    links: {
+      github: "https://github.com/TahiraNawab123/pairly",
+    },
   },
   {
     id: "sudoku",
@@ -75,6 +82,9 @@ const projectsData: Project[] = [
       "A focused Sudoku experience currently in development, with a clean puzzle interface, adjustable difficulty, and thoughtful tools for solving at your own pace. Coming soon.",
     techStack: ["JavaScript", "Game Logic", "UI Design", "Responsive Design"],
     image: "/sudoku-project.png",
+    links: {
+      github: "https://github.com/TahiraNawab123/sudoku",
+    },
   },
   {
     id: "quietspotmap",
@@ -85,6 +95,9 @@ const projectsData: Project[] = [
       "A location-focused project for discovering calm, comfortable places to work, study, or take a quiet break. Coming soon.",
     techStack: ["React", "Maps", "JavaScript", "Responsive Design"],
     image: "/analytics-dashboard-marketing.jpg",
+    links: {
+      github: "https://github.com/TahiraNawab123/quietspotmap",
+    },
   },
   {
     id: "lexora",
@@ -240,6 +253,7 @@ const projectsData: Project[] = [
     image: "/smart-invoice-payroll-platform.png",
     links: {
       github: "https://github.com/TahiraNawab123/smart-invoice-payroll-platform",
+      live: "https://smart-invoice-payroll-platform.vercel.app",
     },
   },
   {
@@ -349,13 +363,7 @@ export default function Projects() {
                     status={project.status}
                     compact
                   />
-                  <button
-                    type="button"
-                    className="mt-3 w-full text-left text-xs font-mono text-primary transition-colors hover:text-foreground"
-                    aria-label={`View details for ${project.title}`}
-                  >
-                    view details →
-                  </button>
+
                 </div>
               </div>
             </motion.div>
