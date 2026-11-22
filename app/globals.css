@@ -167,7 +167,8 @@
 .skill-row { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 18px; padding: 16px 0; border-bottom: 1px solid hsl(var(--border)); }
 .skill-row h3 { color: hsl(var(--muted-foreground)); font-size: 11px; font-weight: 400; }
 .skill-row ul { display: flex; flex-wrap: wrap; gap: 7px; }
-.skill-row li { color: hsl(var(--foreground) / .82); background: hsl(var(--card)); border: 1px solid hsl(var(--border)); border-radius: 5px; padding: 5px 8px; font-size: 10px; }
+.skill-row li { display: inline-flex; align-items: center; gap: 7px; color: hsl(var(--foreground) / .82); background: hsl(var(--card)); border: 1px solid hsl(var(--border)); border-radius: 5px; padding: 5px 8px; font-size: 10px; }
+.skill-row li svg { width: 14px; height: 14px; flex: 0 0 14px; }
 
 .contact-intro { display: flex; align-items: flex-end; justify-content: space-between; gap: 22px; padding: 17px 0; border-top: 1px solid hsl(var(--border)); border-bottom: 1px solid hsl(var(--border)); }
 .contact-intro > div { max-width: 470px; }
