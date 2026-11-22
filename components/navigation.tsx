@@ -6,8 +6,9 @@ import TerminalWindow from "./terminal-window"
 
 const navItems = [
   { label: "About", href: "#about" },
-  { label: "Work", href: "#projects" },
   { label: "Experience", href: "#experience" },
+  { label: "Projects", href: "#projects" },
+  { label: "Skills", href: "#skills" },
   { label: "Contact", href: "#contact" },
 ]
 

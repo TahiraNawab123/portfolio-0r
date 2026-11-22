@@ -290,11 +290,8 @@ export default function Projects() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-5xl sm:text-6xl font-bold mb-4">
-            <span className="text-primary">{"<"}</span>
-            <span className="text-foreground"> projects </span>
-            <span className="text-primary">{">"}</span>
-          </h2>
+          <p className="section-kicker">03 / Projects</p>
+          <h2 className="mb-2 text-2xl font-medium tracking-tight text-foreground">Selected projects</h2>
           <p className="text-muted-foreground">Featured work and technical achievements</p>
         </motion.div>
 
