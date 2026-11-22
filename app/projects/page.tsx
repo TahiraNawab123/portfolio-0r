@@ -6,7 +6,6 @@ import Image from "next/image"
 import Link from "next/link"
 import ProjectModal from "@/components/project-modal"
 import ProjectActions from "@/components/project-actions"
-import MatrixRain from "@/components/matrix-rain"
 
 interface Project {
   id: string
@@ -281,7 +280,6 @@ export default function ProjectsPage() {
 
   return (
     <main className="projects-page relative min-h-screen overflow-hidden bg-background text-foreground">
-      <MatrixRain />
       <div className="projects-shell relative z-10">
         <motion.header
           initial={{ opacity: 0, y: 16 }}
@@ -308,7 +306,6 @@ export default function ProjectsPage() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.45, delay: Math.min(idx * 0.035, 0.28) }}
-              onClick={() => setSelectedProject(project)}
               className="projects-page-card group"
             >
               <div className="projects-card-frame">
@@ -337,7 +334,7 @@ export default function ProjectsPage() {
                 <div className="projects-card-content">
                   <div className="projects-card-title-row">
                     <div>
-                      <h2>{project.title}</h2>
+                      <h2><button type="button" className="project-detail-trigger" onClick={() => setSelectedProject(project)}>{project.title}</button></h2>
                       <p>{project.shortDesc}</p>
                     </div>
                     {project.status && <span className="projects-status">{project.status}</span>}

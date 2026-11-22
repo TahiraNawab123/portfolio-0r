@@ -306,8 +306,7 @@ export default function Projects() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: idx * 0.1 }}
               viewport={{ once: true }}
-              onClick={() => setSelectedProject(project)}
-              className="group cursor-pointer"
+              className="group"
             >
               <div className="bg-card border border-primary/20 rounded-lg overflow-hidden hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 h-full flex flex-col">
                 <div className="h-40 bg-gradient-to-br from-primary/10 to-secondary/10 relative overflow-hidden">
@@ -335,7 +334,9 @@ export default function Projects() {
 
                 <div className="p-6 flex-1 flex flex-col">
                   <h3 className="text-xl font-bold mb-2 text-foreground group-hover:text-primary transition-colors">
-                    {project.title}
+                    <button type="button" className="project-detail-trigger" onClick={() => setSelectedProject(project)}>
+                      {project.title}
+                    </button>
                   </h3>
                   <p className="text-sm text-muted-foreground mb-4 flex-1 project-summary">{project.description}</p>
 

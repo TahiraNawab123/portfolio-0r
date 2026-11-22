@@ -1,5 +1,5 @@
 import type React from "react"
-import type { Metadata } from "next"
+import type { Metadata, Viewport } from "next"
 import { JetBrains_Mono, Space_Grotesk } from "next/font/google"
 import "./globals.css"
 
@@ -7,10 +7,9 @@ const spaceGrotesk = Space_Grotesk({ subsets: ["latin"] })
 const jetbrainsMono = JetBrains_Mono({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Tahira Nawab (Tom) — Software Engineer & Developer",
+  title: "Tahira Nawab — Software Engineer & Full-Stack Developer",
   description:
-    "Tahira Nawab (Tom) is a software engineering student at ITU and full-stack developer building clean systems, thoughtful products, and useful digital experiences.",
-  themeColor: "#0c0c0d",
+    "Tahira Nawab is a software engineering student and full-stack developer at ITU, building thoughtful web products, practical systems, and accessible digital experiences.",
   keywords: ["fullstack developer", "web development", "react", "typescript", "next.js", "portfolio"],
   authors: [{ name: "Tahira Nawab" }],
   icons: {
@@ -26,6 +25,11 @@ export const metadata: Metadata = {
     siteName: "Tahira's Portfolio",
   },
     generator: 'v0.app'
+}
+
+export const viewport: Viewport = {
+  themeColor: "#0c0c0d",
+  colorScheme: "dark",
 }
 
 export default function RootLayout({
