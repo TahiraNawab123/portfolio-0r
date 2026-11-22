@@ -15,8 +15,8 @@ export default function About() {
           <h2>About</h2>
         </div>
         <div className="about-copy">
-          <p>I&apos;m Tahira Nawab, a software engineering student at Information Technology University (ITU) and a full-stack developer.</p>
-          <p>I enjoy turning ideas into reliable products, from web applications and automation tools to legal-tech platforms. My focus is on clear interfaces, thoughtful engineering, and software that solves real problems.</p>
+          <p>I&apos;m Tahira Nawab, a software engineering student at Information Technology University and a full-stack developer.</p>
+          <p>I build web applications, automation tools, and legal-tech products, bringing ideas from early concepts to useful, reliable software. My work combines clear user experiences with practical engineering, with a focus on technology that addresses real needs.</p>
         </div>
       </motion.div>
     </section>

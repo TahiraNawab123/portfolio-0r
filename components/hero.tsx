@@ -21,7 +21,7 @@ export default function Hero() {
           <div className="hero-copy">
             <h1>Hi, I&apos;m Tahira</h1>
             <p className="hero-intro">
-              Software engineering student and full-stack developer. I love building useful things and solving real-world problems.
+              Software engineering student at ITU and full-stack developer building thoughtful digital products that solve practical problems.
             </p>
           </div>
           <img src={portraitUrl} alt="Portrait of Tahira Nawab" className="hero-portrait" fetchPriority="high" />
