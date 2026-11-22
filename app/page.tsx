@@ -7,6 +7,7 @@ import Terminal from "@/components/terminal"
 import About from "@/components/about"
 import Projects from "@/components/projects"
 import Experience from "@/components/experience"
+import Education from "@/components/education"
 import Skills from "@/components/skills"
 import Contact from "@/components/contact"
 import Footer from "@/components/footer"
@@ -31,12 +32,13 @@ export default function Home() {
       <main className="relative min-h-screen overflow-x-hidden bg-background text-foreground">
       <div className="relative z-10">
         <Navigation />
-        <Hero onOpenTerminal={() => setShowTerminal(true)} />
+        <Hero />
 
         <About />
         <Experience />
-        <Projects />
+        <Education />
         <Skills />
+        <Projects />
         <Contact />
       <Footer />
 

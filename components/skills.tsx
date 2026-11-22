@@ -28,7 +28,7 @@ export default function Skills() {
       >
         <div className="section-heading">
           <p className="section-kicker">04 / Skills</p>
-          <h2>Tools I work with</h2>
+          <h2>Skills</h2>
         </div>
         <div className="skills-list">
           {skillGroups.map((group) => (
