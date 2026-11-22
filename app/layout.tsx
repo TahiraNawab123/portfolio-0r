@@ -7,9 +7,10 @@ const spaceGrotesk = Space_Grotesk({ subsets: ["latin"] })
 const jetbrainsMono = JetBrains_Mono({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Tahira Nawab (Tom) — Full-Stack Developer",
+  title: "Tahira Nawab (Tom) — Software Engineer & Developer",
   description:
-    "Tahira Nawab (Tom) is a software engineering student and full-stack developer building clean systems, thoughtful products, and useful digital experiences.",
+    "Tahira Nawab (Tom) is a software engineering student at ITU and full-stack developer building clean systems, thoughtful products, and useful digital experiences.",
+  themeColor: "#0c0c0d",
   keywords: ["fullstack developer", "web development", "react", "typescript", "next.js", "portfolio"],
   authors: [{ name: "Tahira Nawab" }],
   icons: {
