@@ -219,14 +219,14 @@ footer > div { width: min(100%, 760px) !important; }
 .site-nav-links a { padding: 9px 11px; border-radius: 999px; font-size: 11px; }
 .site-nav-links a:hover { background: hsl(var(--muted)); }
 .portfolio-hero { padding: 104px 24px 34px; }
-.hero-content { width: min(100%, 760px); }
+.hero-content { width: min(100%, 680px); }
 .portfolio-hero { isolation: isolate; }
-.portfolio-hero::before { content: ""; position: absolute; z-index: -1; inset: 0 0 auto; height: 310px; pointer-events: none; opacity: .25; background-image: radial-gradient(hsl(var(--muted-foreground) / .72) .8px, transparent .9px); background-size: 5px 5px; mask-image: linear-gradient(to bottom, #000 0%, transparent 92%); animation: hero-grid-drift 24s linear infinite; }
-.portfolio-hero::after { content: ""; position: absolute; z-index: -1; top: 0; left: 50%; width: min(900px, 100vw); height: 300px; transform: translateX(-50%); pointer-events: none; background: radial-gradient(ellipse at 58% 42%, hsl(var(--primary) / .16), transparent 68%); filter: blur(22px); animation: hero-glow-breathe 8s ease-in-out infinite alternate; }
+.portfolio-hero::before { content: ""; position: absolute; z-index: -1; inset: 0 0 auto; height: 330px; pointer-events: none; opacity: .4; background-image: radial-gradient(hsl(var(--foreground) / .62) .75px, transparent .9px); background-size: 5px 5px; mask-image: linear-gradient(to bottom, #000 0%, transparent 94%); animation: hero-grid-drift 24s linear infinite; }
+.portfolio-hero::after { content: ""; position: absolute; z-index: -1; top: 0; left: 50%; width: min(900px, 100vw); height: 300px; transform: translateX(-50%); pointer-events: none; background: radial-gradient(ellipse at 58% 42%, hsl(var(--foreground) / .035), transparent 68%); filter: blur(22px); animation: hero-glow-breathe 8s ease-in-out infinite alternate; }
 @keyframes hero-grid-drift { to { background-position: 45px 25px; } }
 @keyframes hero-glow-breathe { from { opacity: .55; } to { opacity: 1; } }
 .hero-content { position: relative; }
-.hero-intro-row { display: flex; align-items: center; justify-content: space-between; gap: 42px; }
+.hero-intro-row { display: flex; align-items: center; justify-content: space-between; gap: 32px; }
 .hero-copy { flex: 1; }
 .hero-eyebrow { display: flex; align-items: center; gap: 9px; margin-bottom: 14px; color: hsl(var(--primary)); font: 11px "JetBrains Mono", monospace; letter-spacing: .1em; }
 .hero-eyebrow span { width: 7px; height: 7px; border-radius: 50%; background: hsl(var(--primary)); box-shadow: 0 0 14px hsl(var(--primary) / .9); }

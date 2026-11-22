@@ -233,10 +233,10 @@ const projectsData: Project[] = [
   },
   {
     id: "itu-cs-resources",
-    title: "ITU-CS-Resources",
+    title: "CS Resources Hub",
     shortDesc: "Educational Resource Hub",
     description:
-      "A centralized hub for ITU computer science students to access course materials, study guides, and programming resources. organized and easily navigable.",
+      "A centralized library of course materials, study guides, and programming resources for learning computer science, organized for easy browsing.",
     techStack: ["Next.js", "TypeScript", "Tailwind CSS", "MDX"],
     image: "/itu-cs-resources-hub.jpg",
     links: {

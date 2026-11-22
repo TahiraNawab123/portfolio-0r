@@ -9,29 +9,25 @@ const portraitUrl =
 export default function Hero() {
   const reduceMotion = useReducedMotion()
 
-  const entrance = {
-    hidden: { opacity: 0, y: reduceMotion ? 0 : 26 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.85, ease: "easeOut" as const, staggerChildren: reduceMotion ? 0 : 0.16 } },
-  }
-  const itemEntrance = {
-    hidden: { opacity: 0, y: reduceMotion ? 0 : 12 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: "easeOut" as const } },
-  }
 
   return (
     <section id="home" className="portfolio-hero scroll-mt-24">
       <motion.div
-        variants={entrance}
-        initial="hidden"
-        animate="visible"
+        initial={{ opacity: 0, y: reduceMotion ? 0 : 26 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.85, ease: "easeOut" }}
         className="hero-content"
       >
-        <motion.div variants={itemEntrance} className="hero-intro-row">
+        <motion.div
+          initial={{ opacity: 0, y: reduceMotion ? 0 : 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.55, delay: reduceMotion ? 0 : 0.12, ease: "easeOut" }}
+          className="hero-intro-row"
+        >
           <div className="hero-copy">
-            <p className="hero-eyebrow"><span aria-hidden="true" /> SOFTWARE ENGINEERING · ITU</p>
             <h1>Hi, I&apos;m Tahira</h1>
             <p className="hero-intro">
-              Software engineering student at ITU and full-stack developer building thoughtful digital products that solve practical problems.
+              I&apos;m a software engineer and full-stack developer building thoughtful digital products that solve practical problems.
             </p>
           </div>
           <motion.div
@@ -42,11 +38,22 @@ export default function Hero() {
             <img src={portraitUrl} alt="Portrait of Tahira Nawab" className="hero-portrait" fetchPriority="high" />
           </motion.div>
         </motion.div>
-        <motion.div variants={itemEntrance} className="hero-actions">
+        <motion.div
+          initial={{ opacity: 0, y: reduceMotion ? 0 : 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.55, delay: reduceMotion ? 0 : 0.28, ease: "easeOut" }}
+          className="hero-actions"
+        >
           <a className="button-primary" href="#projects">Explore my work <ArrowDown aria-hidden="true" /></a>
           <a className="button-quiet" href="#contact">Get in touch <ArrowUpRight aria-hidden="true" /></a>
         </motion.div>
-        <motion.div variants={itemEntrance} className="hero-socials" aria-label="Social links">
+        <motion.div
+          initial={{ opacity: 0, y: reduceMotion ? 0 : 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.55, delay: reduceMotion ? 0 : 0.4, ease: "easeOut" }}
+          className="hero-socials"
+          aria-label="Social links"
+        >
           <a href="https://github.com/TahiraNawab123" target="_blank" rel="noreferrer"><Github aria-hidden="true" /> GitHub</a>
           <a href="https://www.linkedin.com/in/tahira-nawab" target="_blank" rel="noreferrer"><Linkedin aria-hidden="true" /> LinkedIn</a>
           <a href="mailto:tahira.nawab.dev@gmail.com">tahira.nawab.dev@gmail.com <ArrowUpRight aria-hidden="true" /></a>

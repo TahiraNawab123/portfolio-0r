@@ -9,7 +9,7 @@ const jetbrainsMono = JetBrains_Mono({ subsets: ["latin"] })
 export const metadata: Metadata = {
   title: "Tahira Nawab — Software Engineer & Full-Stack Developer",
   description:
-    "Tahira Nawab is a software engineering student and full-stack developer at ITU, building thoughtful web products, practical systems, and accessible digital experiences.",
+    "Tahira Nawab is a software engineer and full-stack developer, building thoughtful web products, practical systems, and accessible digital experiences.",
   keywords: ["fullstack developer", "web development", "react", "typescript", "next.js", "portfolio"],
   authors: [{ name: "Tahira Nawab" }],
   icons: {
