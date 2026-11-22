@@ -11,6 +11,7 @@ export default function TechSphere() {
   const containerRef = useRef<HTMLDivElement>(null)
   const [rotation, setRotation] = useState({ x: -20, y: -30 })
   const [isInteracting, setIsInteracting] = useState(false)
+  const [hasMounted, setHasMounted] = useState(false)
 
   const technologies: Tech[] = [
     { name: "JavaScript", color: "#F7DF1E" },
@@ -38,6 +39,7 @@ export default function TechSphere() {
   ]
 
   useEffect(() => {
+    setHasMounted(true)
     const container = containerRef.current
     if (!container) return
 
@@ -109,7 +111,7 @@ export default function TechSphere() {
         </div>
 
         {/* Tech nodes */}
-        {technologies.map((tech, index) => {
+        {hasMounted && technologies.map((tech, index) => {
           const pos = getTechPosition(index)
           const distance = Math.sqrt(pos.x ** 2 + pos.y ** 2 + pos.z ** 2)
           const scale = (distance + 200) / 400

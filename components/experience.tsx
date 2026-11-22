@@ -16,10 +16,8 @@ export default function Experience() {
           viewport={{ once: true }}
           className="mb-16"
         >
-          <h2 className="mb-10 font-mono text-4xl font-bold tracking-tight sm:text-5xl">
-            <span className="text-primary">$</span>
-            <span className="text-foreground"> experience</span>
-          </h2>
+          <p className="section-kicker">02 / Work experience</p>
+          <h2 className="mb-5 text-2xl font-medium tracking-tight text-foreground">Work experience</h2>
 
           <div className="mb-12 max-w-2xl border-l border-primary/40 pl-5 text-sm leading-relaxed text-muted-foreground">
             <p>

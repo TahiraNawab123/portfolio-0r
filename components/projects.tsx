@@ -274,7 +274,10 @@ export default function Projects() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null)
   const [loadedImages, setLoadedImages] = useState<Set<string>>(new Set())
 
-  const visibleProjects = projectsData.slice(0, 6)
+  const featuredIds = ["double-shot", "smart-invoice-payroll", "lexora", "multi-threaded-crawler"]
+  const visibleProjects = featuredIds
+    .map((id) => projectsData.find((project) => project.id === id))
+    .filter((project): project is Project => project !== undefined)
 
   const handleImageLoad = (id: string) => {
     setLoadedImages((prev) => new Set(prev).add(id))
@@ -290,11 +293,8 @@ export default function Projects() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-5xl sm:text-6xl font-bold mb-4">
-            <span className="text-primary">{"<"}</span>
-            <span className="text-foreground"> projects </span>
-            <span className="text-primary">{">"}</span>
-          </h2>
+          <p className="section-kicker">03 / Projects</p>
+          <h2 className="mb-2 text-2xl font-medium tracking-tight text-foreground">Selected projects</h2>
           <p className="text-muted-foreground">Featured work and technical achievements</p>
         </motion.div>
 
@@ -337,7 +337,7 @@ export default function Projects() {
                   <h3 className="text-xl font-bold mb-2 text-foreground group-hover:text-primary transition-colors">
                     {project.title}
                   </h3>
-                  <p className="text-sm text-muted-foreground mb-4 flex-1">{project.shortDesc}</p>
+                  <p className="text-sm text-muted-foreground mb-4 flex-1 project-summary">{project.description}</p>
 
                   <div className="flex flex-wrap gap-2">
                     {project.techStack.slice(0, 3).map((tech) => (
