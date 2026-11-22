@@ -233,7 +233,9 @@ footer > div { width: min(100%, 760px) !important; }
 .hero-content h1 { font-size: clamp(40px, 4vw, 48px); font-weight: 650; letter-spacing: -.055em; line-height: 1.08; }
 .hero-intro { max-width: 440px; margin-top: 10px; font-size: 18px; line-height: 1.55; }
 .hero-portrait-wrap { position: relative; flex: 0 0 auto; }
-.hero-portrait-wrap::before { position: absolute; inset: -8px; content: ""; border: 1px solid hsl(var(--foreground) / .22); border-radius: 50%; box-shadow: 0 4px 20px rgb(0 0 0 / .28); }
+.hero-portrait-wrap::before { position: absolute; inset: -12px; content: ""; border: 1px solid hsl(var(--primary) / .42); border-radius: 50%; box-shadow: 0 0 42px hsl(var(--primary) / .18); }
+.hero-portrait-wrap::after { position: absolute; inset: -20px; content: ""; border: 1px dashed hsl(var(--primary) / .24); border-radius: 50%; animation: hero-orbit 28s linear infinite; }
+@keyframes hero-orbit { to { transform: rotate(360deg); } }
 .hero-portrait { position: relative; width: 136px; height: 136px; flex-basis: 136px; border: 5px solid hsl(var(--border)); filter: none; }
 .portfolio-section { width: min(100%, 672px); padding: 32px 24px; }
 .portfolio-section > div { border-top: 0; padding-top: 0; }
