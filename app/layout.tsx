@@ -7,9 +7,9 @@ const spaceGrotesk = Space_Grotesk({ subsets: ["latin"] })
 const jetbrainsMono = JetBrains_Mono({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Tahira Nawab (tom) | Fullstack Developer",
+  title: "Tahira Nawab (Tom) — Full-Stack Developer",
   description:
-    "Fullstack developer crafting solutions with intention — from web apps to AI tools, automation utilities, and complex system designs. Driven by clarity, logic, and purpose.",
+    "Tahira Nawab (Tom) is a software engineering student and full-stack developer building clean systems, thoughtful products, and useful digital experiences.",
   keywords: ["fullstack developer", "web development", "react", "typescript", "next.js", "portfolio"],
   authors: [{ name: "Tahira Nawab" }],
   icons: {
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://tahira-portfolio.vercel.app",
     title: "Tahira Nawab (tom) | Fullstack Developer",
-    description: "Fullstack developer crafting solutions with intention",
+    description: "Full-stack developer building clean systems and useful digital experiences.",
     siteName: "Tahira's Portfolio",
   },
     generator: 'v0.app'

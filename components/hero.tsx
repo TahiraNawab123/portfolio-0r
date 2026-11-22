@@ -1,128 +1,49 @@
 "use client"
 
-import { useEffect, useState } from "react"
 import { motion, useReducedMotion } from "framer-motion"
-
-interface HeroProps {
-  onOpenTerminal: () => void
-}
+import { ArrowDown, ArrowUpRight, Github, Linkedin } from "lucide-react"
 
 const portraitUrl =
   "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/_%20%283%29-1s7hDCOjvwOLnCZXPxBO93jLEKjzWi.jpeg"
 
-export default function Hero({ onOpenTerminal }: HeroProps) {
-  const [displayText, setDisplayText] = useState("")
-  const shouldReduceMotion = useReducedMotion()
-  const fullText = "Fullstack Developer • Problem Solver • System Designer"
-
-  useEffect(() => {
-    let index = 0
-    const timer = setInterval(() => {
-      if (index <= fullText.length) {
-        setDisplayText(fullText.slice(0, index))
-        index++
-      } else {
-        clearInterval(timer)
-      }
-    }, 50)
-
-    return () => clearInterval(timer)
-  }, [])
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: shouldReduceMotion ? 0 : 0.14,
-        delayChildren: shouldReduceMotion ? 0 : 0.2,
-      },
-    },
-  }
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: shouldReduceMotion ? 0 : 18 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: shouldReduceMotion ? 0 : 0.65, ease: "easeOut" },
-    },
-  }
+export default function Hero({ onOpenTerminal }: { onOpenTerminal: () => void }) {
+  const reduceMotion = useReducedMotion()
 
   return (
-    <section id="home" className="relative flex min-h-screen items-center overflow-hidden px-4 pb-16 pt-28 sm:px-6 lg:px-8">
-      <div className="pointer-events-none absolute inset-0 z-[1] bg-[radial-gradient(circle_at_75%_45%,hsl(var(--primary)/0.11),transparent_28%),linear-gradient(90deg,hsl(var(--background)/0.72)_0%,hsl(var(--background)/0.2)_65%,transparent_100%)]" />
-
+    <section id="home" className="portfolio-hero scroll-mt-24">
       <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-        className="relative z-10 mx-auto flex w-full max-w-6xl flex-col items-center gap-14 lg:flex-row lg:justify-between lg:gap-16"
+        initial={{ opacity: 0, y: reduceMotion ? 0 : 18 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, ease: "easeOut" }}
+        className="hero-content"
       >
-        <div className="w-full max-w-2xl text-left">
-          <motion.div variants={itemVariants}>
-            <h1 className="text-balance text-4xl font-bold tracking-tight text-primary neon-text sm:text-6xl lg:text-7xl">
-              Tahira Nawab
-            </h1>
-            <p className="mt-4 font-mono text-lg text-muted-foreground sm:text-xl">aka &#123; tom &#125;</p>
-          </motion.div>
-
-          <motion.p variants={itemVariants} className="mt-6 min-h-8 font-mono text-xs text-secondary sm:text-sm">
-            <span className="text-primary">{">"}</span>
-            <span>{displayText}</span>
-            <span className="ml-1 cursor-blink text-primary">|</span>
-          </motion.p>
-
-          <motion.p variants={itemVariants} className="mt-5 max-w-lg text-pretty text-sm leading-relaxed text-muted-foreground sm:text-base">
-            Full-Stack Developer building clean systems, solving real problems, and crafting meaningful digital experiences.
-          </motion.p>
-
-
-          <motion.div variants={itemVariants} className="mt-10 flex flex-col justify-center gap-4 sm:flex-row lg:justify-start">
-            <button
-              onClick={onOpenTerminal}
-              className="rounded border border-primary bg-primary px-6 py-3 font-mono text-sm text-primary-foreground hover:bg-primary/80 hover:shadow-[0_0_20px_hsl(var(--primary)/0.5)]"
-            >
-              {">"} explore projects
-            </button>
-            <a
-              href="#contact"
-              className="rounded border border-secondary px-6 py-3 font-mono text-sm text-secondary hover:bg-secondary/10"
-            >
-              get in touch
-            </a>
-          </motion.div>
-        </div>
-
-        <motion.div
-          variants={itemVariants}
-          className="relative w-full max-w-[20rem] shrink-0 sm:max-w-[23rem] lg:max-w-[25rem]"
-          animate={shouldReduceMotion ? undefined : { y: [0, -8, 0] }}
-          transition={shouldReduceMotion ? undefined : { duration: 6, repeat: Infinity, ease: "easeInOut" }}
-        >
-          <div className="portrait-frame relative aspect-[4/5] overflow-hidden border border-primary/60 bg-card shadow-[0_0_45px_hsl(var(--primary)/0.13)]">
-            <img
-              src={portraitUrl}
-              alt="Monochrome portrait representing Tahira Nawab"
-              className="portrait-image h-full w-full object-cover"
-              fetchPriority="high"
-              decoding="async"
-            />
-            <div className="portrait-scanlines absolute inset-0" aria-hidden="true" />
-            <div className="portrait-vignette absolute inset-0" aria-hidden="true" />
-            <div className="absolute inset-x-4 top-4 flex justify-between font-mono text-[10px] uppercase tracking-[0.22em] text-primary">
-              <span>tom.exe</span>
-              <span>01 / 01</span>
-            </div>
-            <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between border-t border-primary/40 pt-3 font-mono text-[10px] uppercase tracking-[0.18em] text-primary/80">
-              <span>signal: green</span>
-              <span>online</span>
-            </div>
+        <div className="hero-copy">
+          <div className="availability"><span className="availability-dot" /> Software Engineering Student <span className="availability-divider">/</span> Full-Stack Developer</div>
+          <h1>Hi, I&apos;m Tahira <span className="hero-wave">(Tom)</span></h1>
+          <p className="hero-intro">I build clean systems, solve real problems, and turn thoughtful ideas into useful digital experiences.</p>
+          <div className="hero-actions">
+            <a className="button-primary" href="#projects">Explore my work <ArrowDown aria-hidden="true" /></a>
+            <a className="button-quiet" href="#contact">Let&apos;s talk <ArrowUpRight aria-hidden="true" /></a>
+            <button className="terminal-trigger" type="button" onClick={onOpenTerminal} aria-label="Open portfolio terminal"><span>open terminal</span></button>
           </div>
-          <span className="absolute -bottom-3 -left-3 size-7 border-b border-l border-primary" aria-hidden="true" />
-          <span className="absolute -right-3 -top-3 size-7 border-r border-t border-primary" aria-hidden="true" />
+          <div className="hero-socials" aria-label="Social links">
+            <a href="https://github.com/TahiraNawab123" target="_blank" rel="noreferrer"><Github aria-hidden="true" /> GitHub</a>
+            <a href="https://www.linkedin.com/in/tahira-nawab" target="_blank" rel="noreferrer"><Linkedin aria-hidden="true" /> LinkedIn</a>
+            <a href="mailto:tahira.nawab.dev@gmail.com">tahira.nawab.dev@gmail.com <ArrowUpRight aria-hidden="true" /></a>
+          </div>
+        </div>
+        <motion.div
+          className="hero-portrait-wrap"
+          initial={{ opacity: 0, scale: reduceMotion ? 1 : 0.96 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.15 }}
+        >
+          <div className="hero-portrait-glow" />
+          <img src={portraitUrl} alt="Portrait of Tahira Nawab" className="hero-portrait" fetchPriority="high" />
+          <div className="portrait-caption"><span>TAHIRA NAWAB</span><span>AKA TOM</span></div>
         </motion.div>
       </motion.div>
+      <div className="hero-footnote"><span>Scroll to explore</span><span className="hero-footnote-line" /></div>
     </section>
   )
 }
