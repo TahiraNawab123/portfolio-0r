@@ -10,8 +10,8 @@ export default function Hero() {
   const reduceMotion = useReducedMotion()
 
   const entrance = {
-    hidden: { opacity: 0, y: reduceMotion ? 0 : 18 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" as const, staggerChildren: reduceMotion ? 0 : 0.12 } },
+    hidden: { opacity: 0, y: reduceMotion ? 0 : 26 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.85, ease: "easeOut" as const, staggerChildren: reduceMotion ? 0 : 0.16 } },
   }
   const itemEntrance = {
     hidden: { opacity: 0, y: reduceMotion ? 0 : 12 },
@@ -36,8 +36,8 @@ export default function Hero() {
           </div>
           <motion.div
             className="hero-portrait-wrap"
-            animate={reduceMotion ? undefined : { y: [0, -7, 0] }}
-            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+            animate={reduceMotion ? undefined : { y: [0, -11, 0], rotate: [0, 1.5, 0] }}
+            transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
           >
             <img src={portraitUrl} alt="Portrait of Tahira Nawab" className="hero-portrait" fetchPriority="high" />
           </motion.div>
