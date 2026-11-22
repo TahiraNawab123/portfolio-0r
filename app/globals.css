@@ -5,20 +5,20 @@
 
 :root {
   color-scheme: dark;
-  --background: 0 0% 10%;
-  --foreground: 0 0% 92%;
-  --card: 240 5% 10%;
-  --card-foreground: 0 0% 92%;
-  --primary: 0 0% 82%;
-  --primary-foreground: 240 6% 7%;
-  --secondary: 240 3% 70%;
-  --secondary-foreground: 240 6% 7%;
-  --accent: 0 0% 82%;
-  --accent-foreground: 240 6% 7%;
-  --muted: 240 4% 13%;
-  --muted-foreground: 240 4% 62%;
-  --border: 240 4% 19%;
-  --ring: 157 38% 68%;
+  --background: 150 8% 7%;
+  --foreground: 140 8% 93%;
+  --card: 150 7% 10%;
+  --card-foreground: 140 8% 93%;
+  --primary: 145 48% 61%;
+  --primary-foreground: 150 12% 7%;
+  --secondary: 150 5% 68%;
+  --secondary-foreground: 150 12% 7%;
+  --accent: 145 48% 61%;
+  --accent-foreground: 150 12% 7%;
+  --muted: 150 6% 13%;
+  --muted-foreground: 150 5% 64%;
+  --border: 150 6% 20%;
+  --ring: 145 48% 61%;
   --radius: 0.5rem;
   --sidebar: oklch(0.12 0.005 285);
   --sidebar-foreground: oklch(0.94 0 0);
@@ -31,20 +31,20 @@
 }
 
 .dark {
-  --background: 0 0% 10%;
-  --foreground: 0 0% 92%;
-  --card: 240 5% 10%;
-  --card-foreground: 0 0% 92%;
-  --primary: 0 0% 82%;
-  --primary-foreground: 240 6% 7%;
-  --secondary: 240 3% 70%;
-  --secondary-foreground: 240 6% 7%;
-  --accent: 0 0% 82%;
-  --accent-foreground: 240 6% 7%;
-  --muted: 240 4% 13%;
-  --muted-foreground: 240 4% 62%;
-  --border: 240 4% 19%;
-  --ring: 157 38% 68%;
+  --background: 150 8% 7%;
+  --foreground: 140 8% 93%;
+  --card: 150 7% 10%;
+  --card-foreground: 140 8% 93%;
+  --primary: 145 48% 61%;
+  --primary-foreground: 150 12% 7%;
+  --secondary: 150 5% 68%;
+  --secondary-foreground: 150 12% 7%;
+  --accent: 145 48% 61%;
+  --accent-foreground: 150 12% 7%;
+  --muted: 150 6% 13%;
+  --muted-foreground: 150 5% 64%;
+  --border: 150 6% 20%;
+  --ring: 145 48% 61%;
 }
 
 @theme inline {
@@ -290,4 +290,120 @@ footer > div { max-width: 672px !important; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}
+
+.projects-page { min-height: 100vh; padding: 36px 24px 112px; }
+.projects-page > canvas { opacity: .26; }
+.projects-shell { width: min(100%, 1040px); margin-inline: auto; }
+.projects-page-header { position: relative; isolation: isolate; min-height: 300px; display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-end; overflow: hidden; padding: 16px 0 38px; }
+.projects-page-header::before { position: absolute; z-index: -1; inset: -36px -24px 0; content: ""; opacity: .18; background-image: radial-gradient(hsl(var(--primary) / .8) .7px, transparent .8px); background-size: 14px 14px; mask-image: linear-gradient(to bottom, #000 0%, transparent 92%); animation: project-grid-drift 24s linear infinite; }
+.projects-page-header::after { position: absolute; z-index: -1; inset: 0; content: ""; background: linear-gradient(180deg, transparent 20%, hsl(var(--background) / .3) 55%, hsl(var(--background)) 100%); }
+@keyframes project-grid-drift { to { background-position: 56px 28px; } }
+.projects-back-link { display: inline-flex; align-items: center; gap: 9px; margin-bottom: 38px; color: hsl(var(--muted-foreground)); font-size: 12px; text-decoration: none; }
+.projects-back-link:hover { color: hsl(var(--primary)); }
+.projects-back-link span { color: hsl(var(--primary)); font-size: 16px; }
+.projects-eyebrow, .projects-count { color: hsl(var(--primary)); font: 10px "JetBrains Mono", monospace; letter-spacing: .12em; }
+.projects-eyebrow span { margin-inline: 6px; color: hsl(var(--muted-foreground)); }
+.projects-page-header h1 { margin-top: 12px; color: hsl(var(--foreground)); font-size: clamp(46px, 8vw, 76px); font-weight: 550; letter-spacing: -.07em; line-height: 1; }
+.projects-page-intro { max-width: 530px; margin-top: 14px; color: hsl(var(--muted-foreground)); font-size: 15px; line-height: 1.7; }
+.projects-count { margin-top: 21px; color: hsl(var(--muted-foreground)); font-size: 9px; }
+.projects-page-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
+.projects-page-card { min-width: 0; cursor: pointer; }
+.projects-card-frame { display: flex; height: 100%; flex-direction: column; overflow: hidden; border: 1px solid hsl(var(--border)); border-radius: 10px; background: hsl(var(--card) / .88); transition: transform .25s ease, border-color .25s ease, background-color .25s ease; }
+.projects-page-card:hover .projects-card-frame { transform: translateY(-4px); border-color: hsl(var(--primary) / .38); background: hsl(var(--card)); }
+.projects-card-image { position: relative; height: 238px; overflow: hidden; background: hsl(var(--muted)); }
+.projects-card-image img { transition: transform .6s cubic-bezier(.2,.7,.2,1), opacity .3s ease; }
+.projects-page-card:hover .projects-card-image img { transform: scale(1.035); }
+.projects-image-loading { position: absolute; inset: 0; background: linear-gradient(110deg, hsl(var(--muted)) 20%, hsl(var(--border)) 45%, hsl(var(--muted)) 70%); background-size: 220% 100%; animation: project-image-shimmer 1.8s ease-in-out infinite; }
+@keyframes project-image-shimmer { to { background-position-x: -220%; } }
+.projects-image-shade { position: absolute; inset: 35% 0 0; background: linear-gradient(transparent, hsl(var(--card) / .44)); pointer-events: none; }
+.projects-card-index { position: absolute; right: 14px; bottom: 12px; color: white; font: 10px "JetBrains Mono", monospace; text-shadow: 0 1px 10px #000; }
+.projects-card-content { display: flex; flex: 1; flex-direction: column; padding: 18px 19px 16px; }
+.projects-card-title-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
+.projects-card-title-row h2 { color: hsl(var(--foreground)); font-size: 18px; font-weight: 550; letter-spacing: -.035em; }
+.projects-card-title-row p { margin-top: 4px; color: hsl(var(--muted-foreground)); font-size: 12px; }
+.projects-status { flex: 0 0 auto; border: 1px solid hsl(var(--primary) / .22); border-radius: 99px; padding: 5px 8px; color: hsl(var(--primary)); background: hsl(var(--primary) / .07); font-size: 9px; }
+.projects-card-description { display: -webkit-box; overflow: hidden; margin-top: 15px; color: hsl(var(--muted-foreground)); font-size: 12px; line-height: 1.7; -webkit-box-orient: vertical; -webkit-line-clamp: 3; }
+.projects-card-tech { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; padding-top: 18px; }
+.projects-card-tech span { border: 1px solid hsl(var(--border)); border-radius: 4px; padding: 4px 7px; color: hsl(var(--muted-foreground)); font: 9px "JetBrains Mono", monospace; }
+.projects-card-actions { border-top: 1px solid hsl(var(--border) / .75); padding: 12px 19px; }
+@media (max-width: 700px) {
+  .projects-page { padding: 20px 18px 100px; }
+  .projects-page-header { min-height: 270px; padding-bottom: 30px; }
+  .projects-back-link { margin-bottom: 34px; }
+  .projects-page-grid { gap: 14px; }
+  .projects-card-image { height: 190px; }
+  .projects-card-content { padding: 15px; }
+  .projects-card-actions { padding-inline: 15px; }
+}
+@media (max-width: 560px) {
+  .projects-page { padding-inline: 14px; }
+  .projects-page-header { min-height: 250px; }
+  .projects-page-intro { max-width: 390px; font-size: 14px; }
+  .projects-page-grid { grid-template-columns: 1fr; gap: 16px; }
+  .projects-card-image { height: clamp(190px, 58vw, 260px); }
+}
+
+/* Keep the full project archive in the same quiet, centered visual system. */
+.portfolio-hero::before,
+.projects-page-header::before {
+  background-size: 5px 5px;
+  animation: portfolio-dot-drift 32s linear infinite;
+}
+
+@keyframes portfolio-dot-drift {
+  to { background-position: 20px 12px; }
+}
+
+.projects-page { padding-top: 42px; }
+.projects-shell { width: min(100%, 672px); }
+.projects-page-header {
+  min-height: 250px;
+  align-items: center;
+  justify-content: center;
+  padding: 28px 0 30px;
+  text-align: center;
+}
+.projects-page-header::before {
+  inset: -16px -24px 0;
+  opacity: .12;
+  background-image: radial-gradient(hsl(var(--muted-foreground) / .65) .7px, transparent .7px);
+  background-size: 5px 5px;
+  mask-image: linear-gradient(to bottom, #000, transparent 90%);
+}
+.projects-page-header::after { background: linear-gradient(180deg, transparent, hsl(var(--background) / .72) 72%, hsl(var(--background))); }
+.projects-back-link { align-self: flex-start; margin-bottom: auto; }
+.projects-eyebrow { margin-top: 24px; color: hsl(var(--muted-foreground)); font-size: 9px; }
+.projects-page-header h1 { margin-top: 9px; font-size: clamp(34px, 6vw, 46px); font-weight: 650; letter-spacing: -.055em; }
+.projects-page-intro { max-width: 470px; margin-top: 10px; font-size: 14px; }
+.projects-count { margin-top: 12px; }
+.projects-page-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.projects-card-frame { border-radius: 7px; background: hsl(var(--card) / .45); }
+.projects-page-card:hover .projects-card-frame { border-color: hsl(var(--primary) / .4); background: hsl(var(--card) / .8); box-shadow: 0 12px 28px #0003; }
+.projects-card-image { height: 150px; }
+.projects-image-shade { background: linear-gradient(transparent, hsl(var(--card) / .2)); }
+.projects-card-content { min-height: 210px; padding: 15px 16px 14px; }
+.projects-card-title-row h2 { font-size: 15px; font-weight: 500; }
+.projects-card-title-row p { font-size: 11px; }
+.projects-card-description { margin-top: 11px; font-size: 11px; line-height: 1.65; }
+.projects-card-tech { gap: 5px; padding-top: 14px; }
+.projects-card-tech span { font-family: "Space Grotesk", sans-serif; font-size: 9px; }
+.projects-card-actions { padding: 10px 16px; }
+
+@media (max-width: 700px) {
+  .projects-page { padding: 24px 22px 100px; }
+  .projects-page-header { min-height: 238px; }
+  .projects-card-image { height: 145px; }
+  .projects-card-content { min-height: 220px; }
+}
+@media (max-width: 560px) {
+  .projects-page { padding-inline: 22px; }
+  .projects-page-header { min-height: 230px; }
+  .projects-page-grid { grid-template-columns: 1fr; gap: 12px; }
+  .projects-card-image { height: clamp(185px, 55vw, 245px); }
+  .projects-card-content { min-height: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-hero::before,
+  .projects-page-header::before { animation: none; }
 }

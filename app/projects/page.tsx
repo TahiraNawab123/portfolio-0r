@@ -6,7 +6,6 @@ import Image from "next/image"
 import Link from "next/link"
 import ProjectModal from "@/components/project-modal"
 import ProjectActions from "@/components/project-actions"
-import MatrixRain from "@/components/matrix-rain"
 
 interface Project {
   id: string
@@ -280,90 +279,73 @@ export default function ProjectsPage() {
   }
 
   return (
-    <main className="relative min-h-screen bg-background text-foreground py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
-      <MatrixRain />
-      <div className="max-w-7xl mx-auto relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
+    <main className="projects-page relative min-h-screen overflow-hidden bg-background text-foreground">
+      <div className="projects-shell relative z-10">
+        <motion.header
+          initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="mb-12"
+          transition={{ duration: 0.55, ease: "easeOut" }}
+          className="projects-page-header"
         >
-          <Link
-            href="/#projects"
-            className="inline-flex items-center gap-2 text-primary hover:text-foreground transition-colors mb-8"
-          >
-            <span>←</span>
-            <span>Back to portfolio</span>
+          <Link href="/#projects" className="projects-back-link">
+            <span aria-hidden="true">←</span>
+            Back to portfolio
           </Link>
-
-          <h1 className="text-5xl sm:text-7xl font-bold mb-4">
-            <span className="text-primary">{"<"}</span>
-            <span className="text-foreground"> all projects </span>
-            <span className="text-primary">{">"}</span>
-          </h1>
-          <p className="text-muted-foreground text-lg">
-            Explore all {projectsData.length} projects from my portfolio
+          <p className="projects-eyebrow">TAHIRA NAWAB <span>/</span> SELECTED WORK</p>
+          <h1>Projects</h1>
+          <p className="projects-page-intro">
+            A selection of products, experiments, and systems built to solve practical problems.
           </p>
-        </motion.div>
+          <p className="projects-count">{String(projectsData.length).padStart(2, "0")} PROJECTS</p>
+        </motion.header>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 relative">
+        <div className="projects-page-grid">
           {projectsData.map((project, idx) => (
             <motion.div
               key={project.id}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: idx * 0.05 }}
-              onClick={() => setSelectedProject(project)}
-              className="group cursor-pointer"
+              transition={{ duration: 0.45, delay: Math.min(idx * 0.035, 0.28) }}
+              className="projects-page-card group"
             >
-              <div className="bg-card border border-primary/20 rounded-lg overflow-hidden hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 h-full flex flex-col">
-                <div className="h-40 bg-gradient-to-br from-primary/10 to-secondary/10 relative overflow-hidden">
+              <div className="projects-card-frame">
+                <div className="projects-card-image">
                   {project.image && (
                     <Image
                       src={project.image}
-                      alt={project.title}
+                      alt={`${project.title} project preview`}
                       fill
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      sizes="(max-width: 680px) 100vw, (max-width: 1080px) 50vw, 33vw"
                       className={`object-cover transition-opacity duration-300 ${
                         loadedImages.has(project.id)
-                          ? "opacity-40 group-hover:opacity-60"
+                          ? "opacity-75 group-hover:opacity-100"
                           : "opacity-0"
                       }`}
                       onLoad={() => handleImageLoad(project.id)}
+                      loading={idx < 2 ? "eager" : "lazy"}
                       quality={75}
                     />
                   )}
-                  {!loadedImages.has(project.id) && (
-                    <div className="absolute inset-0 animate-pulse bg-primary/5" />
-                  )}
-                  <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent" />
+                  {!loadedImages.has(project.id) && <div className="projects-image-loading" />}
+                  <div className="projects-image-shade" />
+                  <span className="projects-card-index">{String(idx + 1).padStart(2, "0")}</span>
                 </div>
 
-                <div className="p-6 flex-1 flex flex-col">
-                  <h3 className="text-xl font-bold mb-2 text-foreground group-hover:text-primary transition-colors">
-                    {project.title}
-                  </h3>
-                  <p className="text-sm text-muted-foreground mb-4 flex-1">{project.shortDesc}</p>
-
-                  <div className="flex flex-wrap gap-2">
-                    {project.techStack.slice(0, 3).map((tech) => (
-                      <span
-                        key={tech}
-                        className="px-2 py-1 text-xs rounded bg-primary/10 text-primary border border-primary/30"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                    {project.techStack.length > 3 && (
-                      <span className="px-2 py-1 text-xs rounded bg-secondary/10 text-secondary border border-secondary/30">
-                        +{project.techStack.length - 3}
-                      </span>
-                    )}
+                <div className="projects-card-content">
+                  <div className="projects-card-title-row">
+                    <div>
+                      <h2><button type="button" className="project-detail-trigger" onClick={() => setSelectedProject(project)}>{project.title}</button></h2>
+                      <p>{project.shortDesc}</p>
+                    </div>
+                    {project.status && <span className="projects-status">{project.status}</span>}
+                  </div>
+                  <p className="projects-card-description">{project.description}</p>
+                  <div className="projects-card-tech" aria-label="Technologies">
+                    {project.techStack.slice(0, 4).map((tech) => <span key={tech}>{tech}</span>)}
                   </div>
                 </div>
 
-                <div className="px-6 pb-5 border-t border-border/20 pt-4">
+                <div className="projects-card-actions" onClick={(event) => event.stopPropagation()}>
                   <ProjectActions
                     github={project.links?.github}
                     live={project.links?.live}
