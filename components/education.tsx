@@ -25,10 +25,16 @@ export default function Education() {
         <ul className="education-list">
           {education.map((item) => (
             <li className="education-item" key={item.school}>
-              <span className="education-mark" aria-hidden="true">ITU</span>
+              <span className="education-mark education-logo-wrap">
+                <img
+                  className="education-logo"
+                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%20From%202026-11-23%2009-17-34-B3AwJ9hdSznDwqI0QeuLTX7OW2lyXC.png"
+                  alt="Information Technology University logo"
+                />
+              </span>
               <div>
                 <h3>{item.school}</h3>
-                <p>{item.degree.replace("&apos;", "'")}</p>
+                <p>{item.degree}</p>
                 <span>{item.location}</span>
               </div>
             </li>
