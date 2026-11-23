@@ -35,14 +35,21 @@ export default function Experience() {
               className="relative border-b border-border/40 px-6 py-7 transition-colors duration-300 first:pt-0 last:border-b-0 hover:bg-card/30"
             >
               <span className="absolute -left-[5px] top-8 size-2 rounded-full bg-primary shadow-[0_0_12px_hsl(var(--primary)/0.8)] first:top-0" />
-              <div className="mb-4 flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
-                <h3 className="text-lg font-bold text-foreground">Web Developer</h3>
-                <p className="text-sm text-primary font-mono">Zee Outsourcing Solutions</p>
+              <div className="mb-4 flex items-center gap-3">
+                <span className="experience-logo-wrap" aria-hidden="true">
+                  <img
+                    className="experience-logo"
+                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-sv0fw85urn6dhAiluFGZLQFkV9OZ7v.png"
+                    alt=""
+                  />
+                </span>
+                <div className="flex min-w-0 flex-1 flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
+                  <h3 className="text-lg font-bold text-foreground">Web Developer</h3>
+                  <p className="text-sm text-primary font-mono">Zee Outsourcing Solutions</p>
+                </div>
               </div>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                worked on end-to-end web solutions including frontend development, ui improvements, code structure, and
-                client-side workflows. collaborated with clients, delivered clean interfaces, and ensured scalable
-                design patterns.
+                Built and refined client-facing web experiences, from responsive interfaces to dependable frontend workflows. Partnered with clients to translate requirements into clear, maintainable solutions, improving usability while keeping code structured and ready to grow.
               </p>
             </motion.div>
 
@@ -55,14 +62,15 @@ export default function Experience() {
               className="relative border-b border-border/40 px-6 py-7 transition-colors duration-300 first:pt-0 last:border-b-0 hover:bg-card/30"
             >
               <span className="absolute -left-[5px] top-8 size-2 rounded-full bg-primary shadow-[0_0_12px_hsl(var(--primary)/0.8)] first:top-0" />
-              <div className="mb-4 flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
-                <h3 className="text-lg font-bold text-foreground">Software Engineering Intern</h3>
-                <p className="text-sm text-primary font-mono">Nexium</p>
+              <div className="mb-4 flex items-center gap-3">
+                <span className="experience-initials" aria-hidden="true">N</span>
+                <div className="flex min-w-0 flex-1 flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
+                  <h3 className="text-lg font-bold text-foreground">Software Engineering Intern</h3>
+                  <p className="text-sm text-primary font-mono">Nexium</p>
+                </div>
               </div>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                gained practical exposure to development workflows, version control, documentation, and implementing
-                features in real software environments. contributed to frontend logic, bug fixes, clean code practices,
-                and small-scale system components.
+                Contributed to product development in a collaborative engineering environment, working across frontend features, bug fixes, and documentation. Applied version control and clean-code practices to deliver reliable, well-structured improvements.
               </p>
             </motion.div>
 

@@ -251,6 +251,11 @@ footer > div { width: min(100%, 760px) !important; }
 .education-list { display: grid; gap: 14px; }
 .education-item { display: flex; align-items: center; gap: 12px; }
 .education-mark { display: grid; width: 42px; height: 42px; flex: 0 0 42px; place-items: center; border: 3px solid hsl(var(--border)); border-radius: 50%; color: hsl(var(--foreground)); font-size: 9px; font-weight: 700; }
+.education-logo-wrap { overflow: hidden; border: 1px solid hsl(var(--border)); border-radius: 8px; background: #fff; }
+.education-logo { width: 100%; height: 100%; object-fit: contain; }
+.experience-logo-wrap, .experience-initials { display: grid; width: 42px; height: 42px; flex: 0 0 42px; place-items: center; overflow: hidden; border: 1px solid hsl(var(--border)); border-radius: 50%; background: hsl(var(--card)); }
+.experience-logo { width: 100%; height: 100%; object-fit: contain; background: #fff; }
+.experience-initials { color: hsl(var(--primary)); font: 600 15px "Space Grotesk", sans-serif; letter-spacing: -.05em; }
 .education-item h3 { font-size: 14px; font-weight: 600; }
 .education-item p, .education-item div > span { color: hsl(var(--muted-foreground)); font-size: 12px; line-height: 1.5; }
 #skills .section-heading { margin-bottom: 14px; }
